@@ -1,0 +1,67 @@
+$grey : rgb(220, 220, 220);
+$light-grey : rgb(240, 240, 240);
+$spacing: 1.25rem;
+$mintrack: 90%;
+
+.marginTop10 {
+  margin-top: 10px;
+}
+
+.marginBottom10 {
+  margin-bottom: 10px;
+}
+
+.insta-account {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.insta-account-card {
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  border-bottom: 3px solid #e1306c;
+  margin-bottom: 10px;
+  border-radius: .25rem;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+}
+
+.insta-account-card-img {
+  width: 100px;
+  height: 80px;
+  float: left;
+}
+
+.insta-account-card-img img {
+  width: 80px;
+  height: 80px;
+}
+
+.insta-account-card-content {
+  width: calc(100% - 100px);
+  height: 80px;
+  float: left;
+}
+
+.insta-account-card-content-inner {
+  height: 60px;
+  padding: 10px;
+}
+
+.insta-account-card-content-inner h2 {
+  font-size: 1.1em;
+  color:#e1306c;
+}
+
+.insta-account-card-button {
+  font-size: 9pt;
+  background: #f6f6f6;
+  padding: 2px 5px;
+  border: 1px solid #e2e2e2;
+  color:#666;
+  margin-right: 5px;
+}
+
+.insta-account-last-update {
+  font-size: 8pt;
+}

@@ -1,0 +1,54 @@
+version: "3"
+services:
+  database:
+    image: postgres:13
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-instamate}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret}
+      - POSTGRES_DB=instamate
+    volumes:
+      - ./instamate-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - instamate
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_USER:-admin@instamate.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+       - pgadmin:/root/.pgadmin
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - instamate
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      - DATABASE_USER=${POSTGRES_USER:-instamate}
+      - DATABASE_PASS=${POSTGRES_PASSWORD:-secret}
+      - DATABASE_NAME=instamate
+      - DATABASE_HOST=database
+    ports:
+      - 3000:3000
+    volumes:
+      - instamate-grafana-data:/var/lib/grafana
+    networks:
+      - instamate
+    restart: unless-stopped
+
+networks:
+  instamate:
+    driver: bridge
+
+volumes:
+    postgres:
+    instamate-grafana-data:
+    pgadmin:

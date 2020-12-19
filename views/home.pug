@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	for account in accounts
+		div.insta-account
+			div.insta-account-card
+				div.insta-account-card-img
+					img(src=account.profile_picture_url)
+				div.insta-account-card-content
+					div.insta-account-card-content-inner
+						h2 #{account.name}
+						div.marginTop10
+							span.insta-account-card-button #{account.media_count} Media
+							span.insta-account-card-button #{account.followers_count} Followers
+							span.insta-account-card-button #{account.follows_count} Following
+						div.insta-account-last-update
+							span Last update #{account.insight_date}

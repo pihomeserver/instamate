@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"sync-rsync.sites": [
+			{
+				"localPath": "/Users/chris/Development/InstaMate/InstaMateWeb",
+				"remotePath": "chris@192.168.31.200:/home/chris/InstaMate/InstaMateWeb"
+			},
+			{
+				"localPath": "/Users/chris/Development/InstaMate/InstaMateDB",
+				"remotePath": "chris@192.168.31.200:/home/chris/InstaMate/InstaMateDB"
+			}
+		],
+		"git.ignoreLimitWarning": true,
+		"sync-rsync.executable": "/usr/bin/rsync",
+		"sync-rsync.notification": true,
+		"sync-rsync.onSaveIndividual": true,
+		"sync-rsync.options": [
+
+		],
+		"sync-rsync.exclude": [
+			".git",
+			".vscode",
+			"node_modules",
+			"instamate-db"
+		]
+	}
+}
