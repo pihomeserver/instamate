@@ -5,34 +5,35 @@ dotenv.config({ path: '.env' });
 const cron = require('node-cron');
 const insights = require('./insights');
 const _ = require('lodash')
+const logger = require('../config/logger')
 
 cron.schedule('*/15 * * * *', () => {
-  console.log('** CRON - Insights ** Updating insights for all users');
+  logger.info('CRON - Insights - Updating insights for all users');
   insights.getAllUsersInsights().then(() => {
-    console.log('** CRON - Insights ** Success');
+    logger.info('CRON - Insights - Success');
   }).catch( (err) => {
-    console.log('** CRON - Insights ** Error');
-    console.log(err)
+    logger.error('CRON - Insights - Error');
+    logger.error(err)
   })
 });
 
 cron.schedule('*/5 * * * *', () => {
-  console.log('** CRON - Media ** Updating media for all users');
+  logger.info('CRON - Media - Updating media for all users');
   insights.getAllUsersMedia().then(() => {
-    console.log('** CRON - Media ** Success');
+    logger.info('CRON - Media - Success');
   }).catch( (err) => {
-    console.log('** CRON - Media ** Error');
-    console.log(err)
+    logger.error('CRON - Media - Error');
+    logger.error(err)
   })
 });
 
 cron.schedule('*/15 * * * *', () => {
-  console.log('** CRON - Stories ** Updating stories for all users');
+  logger.info('CRON - Stories - Updating stories for all users');
   insights.getAllUsersStories().then(() => {
-    console.log('** CRON - Stories ** Success');
+    logger.info('CRON - Stories - Success');
   }).catch( (err) => {
-    console.log('** CRON - Stories ** Error');
-    console.log(err)
+    logger.error('CRON - Stories - Error');
+    logger.error(err)
   })
 });
 
@@ -132,15 +133,7 @@ function updateUserInsights(user) {
               }).then( (userInsight) => {
                 profile.data.likes_count = parseInt(totalMediaLikesComments[0].dataValues.total_likes)
                 profile.data.comments_count = parseInt(totalMediaLikesComments[0].dataValues.total_comments)
-                // console.log(profile.data)
-                // console.log(userInsight.dataValues)
-                // console.log(_.isEqual(profile.data, userInsight.dataValues))
                 if (!_.isEqual(profile.data, userInsight.dataValues)) return db.UserInsight.create({
-                // if (userInsight.media_count !== profile.data.media_count || 
-                //     userInsight.followers_count !== profile.data.followers_count || 
-                //     userInsight.follows_count !== profile.data.follows_count ||
-                //     userInsight.likes_count !== totalMediaLikesComments[0].dataValues.total_likes ||
-                //     userInsight.comments_count !== totalMediaLikesComments[0].dataValues.total_comments) return db.UserInsight.create({
                   instagram_business_account: profile.data.id,
                   media_count: profile.data.media_count,
                   followers_count: profile.data.followers_count,
@@ -152,21 +145,6 @@ function updateUserInsights(user) {
               })
           })
         )
-        // userDataCreation.push(db.UserInsight.findOne({
-        //     where: { instagram_business_account: profile.data.id },
-        //     order: [ [ 'insight_date', 'DESC' ]]
-        //   }).then( (userInsight) => {
-        //     if (userInsight.media_count !== profile.data.media_count || 
-        //         userInsight.followers_count !== profile.data.followers_count || 
-        //         userInsight.follows_count !== profile.data.follows_count) return db.UserInsight.create({
-        //       instagram_business_account: profile.data.id,
-        //       media_count: profile.data.media_count,
-        //       followers_count: profile.data.followers_count,
-        //       follows_count: profile.data.follows_count
-        //     })
-        //     return null
-        //   })
-        // )
       }
       return Promise.all(userDataCreation);
     })
@@ -275,9 +253,6 @@ exports.getUserStories = (user) => {
         )
       }
     })
-    // .catch( (err) => {
-    //   console.log(err)
-    // })
 }
 
 function getStoryInsights(user, updatedStory) {
@@ -296,10 +271,12 @@ function getStoryInsights(user, updatedStory) {
       taps_back: insights.data.data[5] ? insights.data.data[5].values[0].value : 0
     })
   })
-  // .catch( err => {
-  //   console.log('****')
-  //   console.log(err)
-  // })
+  .catch( err => {
+    if (err.response && err.response.status === 400 && err.response.data.error.code === 10) {
+      logger.error('Not enought story views to collect insights')
+      logger.error(err.response.data.error.message)
+    }
+  })
 }
 
 /**
@@ -389,7 +366,8 @@ function getMediaInsights(user, media) {
       })
       .catch( err => {
         if (err.response && err.response.status === 400 && err.response.data.error.code === 100 && err.response.data.error.error_subcode === 2108006) {
-          console.log(err.response.data.error)
+          logger.error('User account was not a business account when the media was posted')
+          logger.error(err.response.data.error)
           return db.Media.update({
             valid_business_account: false
           },
