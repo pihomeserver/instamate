@@ -54,9 +54,9 @@ Current information stored in the databased are :
 **Dashboards**
 
 All of these data can be reused in Grafana to create monitoring dashboards
-![Example 1](https://github.com/pihomeserver/instamate/tree/main/public/screenshots/screen1.png)
-![Example 2](https://github.com/pihomeserver/instamate/tree/main/public/screenshots/screen2.png)
-![Example 3](https://github.com/pihomeserver/instamate/tree/main/public/screenshots/screen3.png)
+![Example 1](https://github.com/pihomeserver/instamate/blob/main/public/screenshots/screen1.png?raw=true)
+![Example 2](https://github.com/pihomeserver/instamate/blob/main/public/screenshots/screen2.png?raw=true)
+![Example 3](https://github.com/pihomeserver/instamate/blob/main/public/screenshots/screen3.png?raw=true)
 
 License
 -------
