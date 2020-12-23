@@ -1,0 +1,919 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1608047070243,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 43,
+      "panels": [],
+      "repeat": "user_id",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "title": "$user_id",
+      "type": "row"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 33,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeat": "rangeTop",
+      "repeatDirection": "h",
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "1",
+          "value": "1"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 44,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "2",
+          "value": "2"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 45,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "3",
+          "value": "3"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 8
+      },
+      "id": 46,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "4",
+          "value": "4"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 8
+      },
+      "id": 47,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "5",
+          "value": "5"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 8
+      },
+      "id": 48,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "6",
+          "value": "6"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 15
+      },
+      "id": 49,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "7",
+          "value": "7"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 15
+      },
+      "id": 50,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "8",
+          "value": "8"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 15
+      },
+      "id": 51,
+      "maxPerRow": 3,
+      "options": {
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": true,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "tooptip",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
+      },
+      "pluginVersion": "7.3.3",
+      "repeatDirection": "h",
+      "repeatIteration": 1608047070243,
+      "repeatPanelId": 33,
+      "scopedVars": {
+        "rangeTop": {
+          "selected": false,
+          "text": "9",
+          "value": "9"
+        },
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "dalvany-image-panel"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [
+    "instamate"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Instamate",
+        "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "error": null,
+        "hide": 2,
+        "includeAll": true,
+        "label": "user_id",
+        "multi": false,
+        "name": "user_id",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "ChrisSketching",
+            "value": "17841406965591441"
+          }
+        ],
+        "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Instamate",
+        "definition": "select X from (values(1), (2), (3), (4), (5), (6), (7), (8), (9)) as val(X)",
+        "error": null,
+        "hide": 1,
+        "includeAll": true,
+        "label": null,
+        "multi": false,
+        "name": "rangeTop",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "1",
+            "value": "1"
+          },
+          {
+            "selected": false,
+            "text": "2",
+            "value": "2"
+          },
+          {
+            "selected": false,
+            "text": "3",
+            "value": "3"
+          },
+          {
+            "selected": false,
+            "text": "4",
+            "value": "4"
+          },
+          {
+            "selected": false,
+            "text": "5",
+            "value": "5"
+          },
+          {
+            "selected": false,
+            "text": "6",
+            "value": "6"
+          },
+          {
+            "selected": false,
+            "text": "7",
+            "value": "7"
+          },
+          {
+            "selected": false,
+            "text": "8",
+            "value": "8"
+          },
+          {
+            "selected": false,
+            "text": "9",
+            "value": "9"
+          }
+        ],
+        "query": "select X from (values(1), (2), (3), (4), (5), (6), (7), (8), (9)) as val(X)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "comments_count",
+          "value": "comments_count"
+        },
+        "datasource": "Instamate",
+        "definition": "select X from (values('like_count'), ('comments_count')) as val(X)",
+        "error": null,
+        "hide": 1,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "top_type",
+        "options": [
+          {
+            "selected": false,
+            "text": "like_count",
+            "value": "like_count"
+          },
+          {
+            "selected": true,
+            "text": "comments_count",
+            "value": "comments_count"
+          }
+        ],
+        "query": "select X from (values('like_count'), ('comments_count')) as val(X)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1y",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Top 9",
+  "uid": "QpIPkEJMk",
+  "version": 19
+}

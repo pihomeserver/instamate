@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   let UserDetailedInsight = sequelize.define('UserDetailedInsight', {
     instagram_business_account: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(20)
     },
     insight_date: {
       type: DataTypes.DATE

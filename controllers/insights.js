@@ -244,7 +244,8 @@ exports.getUserStories = (user) => {
               permalink: story.permalink,
               shortcode: story.shortcode,
               timestamp: story.timestamp,
-              username: story.username
+              username: story.username,
+              thumbnail_url: story.thumbnail_url
             }, {returning: true})
           })
           .then( (updatedStory) => {

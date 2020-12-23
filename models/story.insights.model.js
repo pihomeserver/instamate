@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   let StoryInsight = sequelize.define('StoryInsight', {
     media_id: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(20)
     },
     exits: {
       type: DataTypes.INTEGER

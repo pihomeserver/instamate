@@ -1,0 +1,487 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "panels": [],
+      "repeat": "user_id",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "title": "$user_id",
+      "type": "row"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": null,
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "media_id"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "string"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Media details",
+                    "url": "/d/3EuE5E1Gk/story?var-media_id=${__data.fields.media_id}"
+                  }
+                ]
+              },
+              {
+                "id": "displayName",
+                "value": "Image details"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "media_url"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "image"
+              },
+              {
+                "id": "displayName",
+                "value": "Image"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Media details",
+                    "url": "/d/3EuE5E1Gk/story?var-media_id=${__data.fields.media_id}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "like_count"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Likes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "comments_count"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Comments"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "time"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Published date"
+              },
+              {
+                "id": "unit",
+                "value": "time: YYYY-MM-DD HH:mm"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "",
+                    "url": "/d/3EuE5E1Gk/story?var-media_id=${__data.fields.media_id}&from=${__data.fields.tspfrom}&to=${__data.fields.tspto}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 6,
+      "interval": "1m",
+      "options": {
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "7.3.3",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH topInsights as (\n  select \n    media_id,\n    max(exits) as exits, \n    max(impressions) as impressions, \n    max(reach) as reach, \n    max(taps_forward) as taps_forward, \n    max(taps_back) as taps_back,\n    max(\"createdAt\")\n  from \"StoryInsights\"\n  group by media_id\n)\n\nSELECT\n  $__time(s.timestamp),\n  case when s.media_type = 'VIDEO' then s.thumbnail_url\n      else s.media_url\n  end,\n  topInsights.exits,\n  topInsights.impressions,\n  topInsights.reach,\n  topInsights.taps_forward,\n  topInsights.taps_back,\n  s.media_id,\n  1000 * extract(epoch from s.timestamp::timestamp) as tspFrom,\n  ((1000 * extract(epoch from s.timestamp::timestamp)) + 86400000) as tspTo\nFROM \"Story\" s, topInsights\nwhere \n  s.media_id = topInsights.media_id\n  and $__timeFilter(s.timestamp)\nORDER BY s.timestamp desc",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "media_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"Media\"",
+          "timeColumn": "timestamp",
+          "timeColumnType": "varchar",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Stories",
+      "transformations": [],
+      "type": "table"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": null,
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "media_id"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "string"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Media details",
+                    "url": "/d/3EuE5E1Gk/story?var-media_id=${__data.fields.media_id}"
+                  }
+                ]
+              },
+              {
+                "id": "displayName",
+                "value": "Image details"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "media_url"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "image"
+              },
+              {
+                "id": "displayName",
+                "value": "Image"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Media details",
+                    "url": "/d/3EuE5E1Gk/story?var-media_id=${__data.fields.media_id}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "like_count"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Likes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "comments_count"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Comments"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "time"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Published date"
+              },
+              {
+                "id": "unit",
+                "value": "time: YYYY-MM-DD HH:mm"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "",
+                    "url": "/d/3EuE5E1Gk/story?var-media_id=${__data.fields.media_id}&from=${__data.fields.timestamp}"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "interval": "1m",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": false
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "WITH topInsights as (\n  select \n    media_id,\n    max(impressions) as impressions, \n    max(reach) as reach, \n    max(\"createdAt\") as lastInsightDate\n  from \"StoryInsights\"\n  group by media_id\n)\n\nSELECT\n  $__time(s.timestamp::timestamp),\n  topInsights.reach,\n  topInsights.impressions\nFROM \"Story\" s, topInsights\nwhere \n  s.media_id = topInsights.media_id\n  and $__timeFilter(s.timestamp::timestamp)\norder by s.timestamp asc",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "media_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"Media\"",
+          "timeColumn": "timestamp",
+          "timeColumnType": "varchar",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Stories",
+      "tooltip": {
+        "shared": true,
+        "sort": 1,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:305",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:306",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [
+    "InstaMate"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1M",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Stories",
+  "uid": "hPGbcEJGk",
+  "version": 15
+}

@@ -3,10 +3,10 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   let Media = sequelize.define('Media', {
     instagram_business_account: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(20)
     },
     media_id: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(20)
     },
     valid_business_account: {
       type: DataTypes.BOOLEAN
@@ -24,7 +24,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER
     },
     media_type: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(30)
     },
     media_url: {
       type: DataTypes.STRING(2048)
@@ -36,13 +36,13 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     },
     shortcode: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(50)
     },
     thumbnail_url: {
       type: DataTypes.STRING(2048)
     },
     timestamp: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(25)
     },
     username : {
       type: DataTypes.STRING

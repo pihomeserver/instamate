@@ -5,19 +5,19 @@ module.exports = (sequelize) => {
     id: {
       allowNull: false,
       primaryKey: true,
-      type: DataTypes.STRING
+      type: DataTypes.STRING(20)
     },
     name: {
       type: DataTypes.STRING
     },
     category: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(50)
     },
     facebookId: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(20)
     },
     instagram_business_account: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(20)
     }
   });
 

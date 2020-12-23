@@ -1,0 +1,746 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1608734124841,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "panels": [],
+      "repeat": "user_id",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "title": "$user_id",
+      "type": "row"
+    },
+    {
+      "columns": [],
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": null,
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "media_id"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "string"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Media details",
+                    "url": "/d/LQaqKWJMz/media?var-media_id=${__data.fields.media_id}"
+                  }
+                ]
+              },
+              {
+                "id": "displayName",
+                "value": "Image details"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "media_url"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "image"
+              },
+              {
+                "id": "displayName",
+                "value": "Image"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Media details",
+                    "url": "/d/LQaqKWJMz/media?var-media_id=${__data.fields.media_id}&from=${__data.fields.tsp}&tp=now"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "like_count"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Likes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "comments_count"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Comments"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "time"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Published date"
+              },
+              {
+                "id": "unit",
+                "value": "dateTimeAsIso"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "",
+                    "url": "/d/LQaqKWJMz/media?var-media_id=${__data.fields.media_id}&from=${__data.fields.tsp}&tp=now"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_post"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Post"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_factored"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Factored"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_reach"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Reach"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_impressions"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Impressions"
+              }
+            ]
+          }
+        ]
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 8,
+      "interval": "1m",
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "timestamp"
+          }
+        ]
+      },
+      "pageSize": null,
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "showHeader": true,
+      "sort": {
+        "col": 9,
+        "desc": true
+      },
+      "styles": [
+        {
+          "$$hashKey": "object:1052",
+          "alias": "Publication date",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": true,
+          "linkTargetBlank": true,
+          "linkUrl": "/d/LQaqKWJMz/media?var-media_id=${__cell_0}&from=${__cell_1}&to=now",
+          "mappingType": 1,
+          "pattern": "time",
+          "thresholds": [],
+          "type": "date",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1082",
+          "alias": "Media",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "media_image",
+          "preserveFormat": false,
+          "sanitize": true,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": []
+        },
+        {
+          "$$hashKey": "object:1119",
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "tsp",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1130",
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "media_id",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:2072",
+          "alias": "Like",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "like_count",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:2083",
+          "alias": "Comments",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "comments_count",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:2094",
+          "alias": "Saved",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "saved",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:2105",
+          "alias": "ER Post",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "er_post",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "$$hashKey": "object:2116",
+          "alias": "ER Factored",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "er_factored",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "$$hashKey": "object:2127",
+          "alias": "ER Reach (ERR)",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "er_reach",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        },
+        {
+          "$$hashKey": "object:2138",
+          "alias": "ER Impressions",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "er_impressions",
+          "thresholds": [],
+          "type": "number",
+          "unit": "percent"
+        }
+      ],
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "with currentFollowers as (\n  SELECT followers_count\n  FROM \"UserInsights\"\n  WHERE instagram_business_account = $user_id\n  ORDER BY insight_date desc\n  LIMIT 1\n), maxMediaInsight as (select\n\tmedia_id, max(\"createdAt\") as last_insight\nfrom \"MediaInsights\" mi\ngroup by mi.media_id)\n\nselect\n\tm.media_id,\n\t1000 * extract(epoch from timestamp::timestamp) as tsp,\n  $__time(timestamp),\n  concat('<img width=\"70px\" height\"70px\" src=\"',case when media_type = 'VIDEO' then thumbnail_url\n    else media_url\n  end, '\"/>') as media_image,\n  mi.like_count,\n  mi.comments_count, \n  mi.saved,\n\t(cast (mi.engagement as float) / currentFollowers.followers_count)*100 as er_post,\n\t((cast (mi.comments_count as float) + mi.comments_count + mi.like_count + mi.saved)/ currentFollowers.followers_count)*100 as er_factored,\n\t(cast (mi.reach as float) / currentFollowers.followers_count)*100 as er_reach,\n\t(cast (mi.impressions as float) / currentFollowers.followers_count)*100 as er_impressions\nfrom\n\t\"Media\" m, \n\t\"MediaInsights\" mi,\n\tmaxMediaInsight, \n\tcurrentFollowers\nwhere\n\tm.media_id = maxMediaInsight.media_id\n\tand m.instagram_business_account = $user_id\n\tand m.media_id = mi.media_id \n\tand mi.\"createdAt\" = maxMediaInsight.last_insight\n\tand extract(epoch from m.\"timestamp\"::date)*1000 >= $__from\norder by m.\"timestamp\" desc \nlimit 20",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "media_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"Media\"",
+          "timeColumn": "timestamp",
+          "timeColumnType": "varchar",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Feed",
+      "transform": "table",
+      "transformations": [],
+      "type": "table-old"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": null,
+            "displayMode": "auto",
+            "filterable": false
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_post"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Post"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_factored"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Factored"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_reach"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Reach"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "er_impressions"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "ER Impressions"
+              }
+            ]
+          }
+        ]
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 9,
+      "interval": "1m",
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "with currentFollowers as (\n  SELECT followers_count\n  FROM \"UserInsights\"\n  WHERE instagram_business_account = $user_id\n  ORDER BY insight_date desc\n  LIMIT 1\n), maxMediaInsight as (select\n\tmedia_id, max(\"createdAt\") as last_insight\nfrom \"MediaInsights\" mi\ngroup by mi.media_id)\n\nselect\n  $__time(timestamp::date),\n\t(cast (mi.engagement as float) / currentFollowers.followers_count)*100 as er_post,\n\t((cast (mi.comments_count as float) + mi.comments_count + mi.like_count + mi.saved)/ currentFollowers.followers_count)*100 as er_factored,\n\t(cast (mi.reach as float) / currentFollowers.followers_count)*100 as er_reach,\n\t(cast (mi.impressions as float) / currentFollowers.followers_count)*100 as er_impressions\nfrom\n\t\"Media\" m, \n\t\"MediaInsights\" mi,\n\tmaxMediaInsight, \n\tcurrentFollowers\nwhere\n\tm.media_id = maxMediaInsight.media_id\n\tand m.instagram_business_account = $user_id\n\tand m.media_id = mi.media_id \n\tand mi.\"createdAt\" = maxMediaInsight.last_insight\n\tand $__timeFilter(m.timestamp)\n--\tand extract(epoch from m.\"timestamp\"::date)*1000 >= $__from\norder by m.\"timestamp\" asc ",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "media_id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"Media\"",
+          "timeColumn": "timestamp",
+          "timeColumnType": "varchar",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Engagements",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transformations": [],
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3435",
+          "decimals": 1,
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3436",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [
+    "InstaMate"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        },
+        "datasource": "Instamate",
+        "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "error": null,
+        "hide": 2,
+        "includeAll": true,
+        "label": "user_id",
+        "multi": false,
+        "name": "user_id",
+        "options": [],
+        "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1M",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Feed",
+  "uid": "4LbcF60Mk",
+  "version": 75
+}
