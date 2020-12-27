@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1608109522668,
+  "iteration": 1608736215126,
   "links": [],
   "panels": [
     {
@@ -102,7 +102,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  media_url\nFROM \"Story\"\nWHERE\n  media_id = '$media_id'",
+          "rawSql": "SELECT\n  case when s.media_type = 'VIDEO' then s.thumbnail_url\n      else s.media_url\n  end\nFROM \"Story\" s\nWHERE\n  media_id = '$media_id'",
           "refId": "A",
           "select": [
             [
@@ -806,7 +806,7 @@
       }
     }
   ],
-  "refresh": "15m",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
@@ -831,7 +831,7 @@
             "value": "17902484194621111"
           }
         ],
-        "query": "17944050676408060",
+        "query": "17850562037450031",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -883,5 +883,5 @@
   "timezone": "",
   "title": "Story",
   "uid": "3EuE5E1Gk",
-  "version": 5
+  "version": 6
 }

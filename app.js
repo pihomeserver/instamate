@@ -5,7 +5,6 @@ const express = require('express');
 const compression = require('compression');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-// const logger = require('morgan');
 const chalk = require('chalk');
 const errorHandler = require('errorhandler');
 const lusca = require('lusca');
@@ -30,7 +29,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 
 /**
- * API keys and Passport configuration.
+ * Passport configuration.
  */
 const passportConfig = require('./config/passport');
 
@@ -42,8 +41,8 @@ const app = express();
 /**
  * Express configuration.
  */
-app.set('host', '0.0.0.0');
-app.set('port', 8080);
+app.set('host', process.env.HOST || '0.0.0.0');
+app.set('port', process.env.PORT || 8080);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(compression());
@@ -104,7 +103,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(errorHandler());
 } else {
   app.use((err, req, res, next) => {
-    console.error(err);
+    logger.error(err);
     res.status(500).send('Server Error');
   });
 }
@@ -113,8 +112,8 @@ if (process.env.NODE_ENV === 'development') {
  * Start Express server.
  */
 app.listen(app.get('port'), () => {
-  console.log('%s App is running at http://localhost:%d in %s mode', chalk.green('✓'), app.get('port'), app.get('env'));
-  console.log('  Press CTRL-C to stop\n');
+  logger.info(`${chalk.green('✓')} App is running at http://localhost:${app.get('port')} in ${app.get('env')} mode`);
+  logger.info('  Press CTRL-C to stop\n');
 });
 
 module.exports = app;

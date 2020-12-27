@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1608734124841,
+  "iteration": 1608885930004,
   "links": [],
   "panels": [
     {
@@ -251,7 +251,7 @@
       },
       "showHeader": true,
       "sort": {
-        "col": 9,
+        "col": 2,
         "desc": true
       },
       "styles": [
@@ -742,5 +742,5 @@
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 75
+  "version": 76
 }

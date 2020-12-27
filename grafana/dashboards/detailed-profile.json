@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1608733271113,
+  "iteration": 1609059670656,
   "links": [],
   "panels": [
     {
@@ -1126,7 +1126,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "WITH engTotal as (\nselect sum(engAll) as eng\nfrom (\n\tselect max(engagement) as engAll\n\tfrom \"MediaInsights\" mi\n\twhere mi.media_id in (select media_id from \"Media\" order by \"timestamp\" desc limit 20)\n\tgroup by mi.media_id \n\t) as engList\n)\n\nSELECT\n  cast (engTotal.eng as float) / followers_count as engRate\nFROM \"UserInsights\", engTotal\nWHERE\n  instagram_business_account = $user_id\nORDER by insight_date desc\nLIMIT 1",
+          "rawSql": "WITH engTotal as (\nselect sum(engAll) as eng\nfrom (\n\tselect max(engagement) as engAll\n\tfrom \"MediaInsights\" mi\n\twhere mi.media_id in (select media_id from \"Media\" order by \"timestamp\" desc limit 20)\n\tgroup by mi.media_id \n\t) as engList\n)\n\nSELECT\n  cast (engTotal.eng as float)*100/20 / followers_count as engRate\nFROM \"UserInsights\", engTotal\nWHERE\n  instagram_business_account = $user_id\nORDER by insight_date desc\nLIMIT 1",
           "refId": "A",
           "select": [
             [
@@ -1526,7 +1526,10 @@
       "type": "table"
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "gainfollowers": "blue",
+        "lostfollowers": "red"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
@@ -1588,12 +1591,7 @@
           "value": "17841406965591441"
         }
       },
-      "seriesOverrides": [
-        {
-          "alias": "newfollowers",
-          "yaxis": 1
-        }
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
@@ -1603,7 +1601,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "with gainsData as (select\n  ui.insight_date::date,\n\tudi.follower_count as newFollowers,\n\tui.followers_count - lag(ui.followers_count, 1) over () as gainFollowers,\n\tudi.follower_count - (ui.followers_count - lag(ui.followers_count, 1) over ()) as lostFollowers\nfrom \"UserInsights\" ui \nleft join \"UserDetailedInsights\" udi on \n  ui.insight_date::date = udi.insight_date::date and \n  ui.instagram_business_account=udi.instagram_business_account\nwhere \n  ui.instagram_business_account = $user_id and\n  udi.follower_count is not null and\n  ui.insight_date in (\n  \tselect max(ui.insight_date) as lastInsight\n  \tfrom \"UserInsights\" ui\n  \twhere ui.instagram_business_account = $user_id\n  \tgroup by ui.insight_date::date\n  )\n  and extract(epoch from ui.insight_date)*1000 > $__from - 86400000\n)\n\nselect \n  $__time(insight_date),\n  newFollowers,\n  gainFollowers,\n  lostFollowers\nfrom gainsData\nwhere $__timeFilter(insight_date)",
+          "rawSql": "with gainsData as (select\n  ui.insight_date::date,\n\tudi.follower_count as newFollowers,\n\t@(ui.followers_count - lag(ui.followers_count, 1) over ()) as gainFollowers,\n\t@(udi.follower_count - (ui.followers_count - lag(ui.followers_count, 1) over ())) as lostFollowers\nfrom \"UserInsights\" ui \nleft join \"UserDetailedInsights\" udi on \n  ui.insight_date::date = udi.insight_date::date and \n  ui.instagram_business_account=udi.instagram_business_account\nwhere \n  ui.instagram_business_account = $user_id and\n  udi.follower_count is not null and\n  ui.insight_date in (\n  \tselect max(ui.insight_date) as lastInsight\n  \tfrom \"UserInsights\" ui\n  \twhere ui.instagram_business_account = $user_id\n  \tgroup by ui.insight_date::date\n  )\n  and extract(epoch from ui.insight_date)*1000 > $__from - 86400000\n)\n\nselect \n  $__time(insight_date),\n  newFollowers,\n  gainFollowers,\n  lostFollowers\nfrom gainsData\nwhere $__timeFilter(insight_date)\norder by insight_date asc",
           "refId": "A",
           "select": [
             [
@@ -1916,7 +1914,7 @@
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -3004,5 +3002,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 55
+  "version": 62
 }
