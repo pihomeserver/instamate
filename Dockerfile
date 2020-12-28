@@ -17,6 +17,6 @@ COPY . /starter
 # remove development dependencies
 RUN npm prune --production
 
-CMD ["npm","start"]
-
 EXPOSE 8080
+
+CMD ["npm","start"]

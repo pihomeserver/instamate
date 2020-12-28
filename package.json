@@ -1,15 +1,15 @@
 {
-  "name": "hackathon-starter",
-  "version": "6.0.1",
-  "description": "A boilerplate for Node.js web applications",
+  "name": "Instamate",
+  "version": "0.0.3",
+  "description": "A powerful, self-hosted data logger for your Instagram account",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/pihomeserver/instamate"
   },
   "license": "MIT",
-  "author": "Sahat Yalkabov",
+  "author": "Pi Home Server",
   "contributors": [
-    "Yashar Fakhari (https://github.com/YasharF)"
+    "Pi Home Server"
   ],
   "scripts": {
     "postinstall": "npm rebuild node-sass",
@@ -21,7 +21,8 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@ladjs/bootstrap-social": "^7.0.2",
     "@octokit/rest": "^18.0.12",
-    "axios": "^0.20.0",
+    "@popperjs/core": "^2.6.0",
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
@@ -44,7 +45,6 @@
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",
     "pg": "^8.5.1",
-    "popper.js": "^1.16.1",
     "pug": "^3.0.0",
     "sequelize": "^6.3.5",
     "stripe": "^8.129.0",

@@ -112,7 +112,7 @@ if (process.env.NODE_ENV === 'development') {
  * Start Express server.
  */
 app.listen(app.get('port'), () => {
-  logger.info(`${chalk.green('✓')} App is running at http://localhost:${app.get('port')} in ${app.get('env')} mode`);
+  logger.info(`${chalk.green('✓')} Instamate is running at http://${app.get('host')}:${app.get('port')} in ${app.get('env')} mode`);
   logger.info('  Press CTRL-C to stop\n');
 });
 

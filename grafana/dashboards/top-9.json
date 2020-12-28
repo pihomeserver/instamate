@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1608047070243,
+  "iteration": 1609163508030,
   "links": [],
   "panels": [
     {
@@ -43,6 +43,234 @@
     },
     {
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 53,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.3.3",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  count(media_id)\nFROM\n  \"Media\"\nwhere\n  extract(epoch from timestamp::date)*1000 >= $__from\n  and extract(epoch from timestamp::date)*1000 <= $__to\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Media published",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 54,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.3.3",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  sum(like_count)\nFROM\n  \"Media\"\nwhere\n  extract(epoch from timestamp::date)*1000 >= $__from\n  and extract(epoch from timestamp::date)*1000 <= $__to\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total likes",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 55,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "7.3.3",
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  sum(comments_count)\nFROM\n  \"Media\"\nwhere\n  extract(epoch from timestamp::date)*1000 >= $__from\n  and extract(epoch from timestamp::date)*1000 <= $__to\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total comments",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -54,7 +282,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 1
+        "y": 4
       },
       "id": 33,
       "maxPerRow": 3,
@@ -131,7 +359,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 1
+        "y": 4
       },
       "id": 44,
       "maxPerRow": 3,
@@ -149,7 +377,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -209,7 +437,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 1
+        "y": 4
       },
       "id": 45,
       "maxPerRow": 3,
@@ -227,7 +455,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -287,7 +515,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 8
+        "y": 11
       },
       "id": 46,
       "maxPerRow": 3,
@@ -305,7 +533,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -365,7 +593,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 8
+        "y": 11
       },
       "id": 47,
       "maxPerRow": 3,
@@ -383,7 +611,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -443,7 +671,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 8
+        "y": 11
       },
       "id": 48,
       "maxPerRow": 3,
@@ -461,7 +689,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -521,7 +749,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 15
+        "y": 18
       },
       "id": 49,
       "maxPerRow": 3,
@@ -539,7 +767,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -599,7 +827,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 15
+        "y": 18
       },
       "id": 50,
       "maxPerRow": 3,
@@ -617,7 +845,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -677,7 +905,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 15
+        "y": 18
       },
       "id": 51,
       "maxPerRow": 3,
@@ -695,7 +923,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1608047070243,
+      "repeatIteration": 1609163508030,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -915,5 +1143,5 @@
   "timezone": "",
   "title": "Top 9",
   "uid": "QpIPkEJMk",
-  "version": 19
+  "version": 20
 }

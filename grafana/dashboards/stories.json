@@ -42,6 +42,7 @@
       "type": "row"
     },
     {
+      "columns": [],
       "datasource": null,
       "description": "",
       "fieldConfig": {
@@ -172,8 +173,9 @@
           }
         ]
       },
+      "fontSize": "100%",
       "gridPos": {
-        "h": 8,
+        "h": 12,
         "w": 24,
         "x": 0,
         "y": 1
@@ -184,14 +186,196 @@
         "showHeader": true,
         "sortBy": []
       },
+      "pageSize": null,
       "pluginVersion": "7.3.3",
+      "showHeader": true,
+      "sort": {
+        "col": 3,
+        "desc": true
+      },
+      "styles": [
+        {
+          "$$hashKey": "object:281",
+          "alias": "Publication date",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "link": true,
+          "linkTargetBlank": true,
+          "linkUrl": "/d/3EuE5E1Gk/story?var-media_id=${__cell_0}&from=${__cell_1}&to=${__cell_2}",
+          "pattern": "time",
+          "type": "date"
+        },
+        {
+          "$$hashKey": "object:1003",
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "media_id",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1014",
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "tspfrom",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1025",
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "tspto",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1036",
+          "alias": "Image",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "media_image",
+          "sanitize": true,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1185",
+          "alias": "Exits",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "exits",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1196",
+          "alias": "Impressions",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "impressions",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1207",
+          "alias": "Reach",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "reach",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1218",
+          "alias": "Taps forward",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "taps_forward",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "$$hashKey": "object:1229",
+          "alias": "Taps backward",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "taps_back",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
       "targets": [
         {
           "format": "table",
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "WITH topInsights as (\n  select \n    media_id,\n    max(exits) as exits, \n    max(impressions) as impressions, \n    max(reach) as reach, \n    max(taps_forward) as taps_forward, \n    max(taps_back) as taps_back,\n    max(\"createdAt\")\n  from \"StoryInsights\"\n  group by media_id\n)\n\nSELECT\n  $__time(s.timestamp),\n  case when s.media_type = 'VIDEO' then s.thumbnail_url\n      else s.media_url\n  end,\n  topInsights.exits,\n  topInsights.impressions,\n  topInsights.reach,\n  topInsights.taps_forward,\n  topInsights.taps_back,\n  s.media_id,\n  1000 * extract(epoch from s.timestamp::timestamp) as tspFrom,\n  ((1000 * extract(epoch from s.timestamp::timestamp)) + 86400000) as tspTo\nFROM \"Story\" s, topInsights\nwhere \n  s.media_id = topInsights.media_id\n  and $__timeFilter(s.timestamp)\nORDER BY s.timestamp desc",
+          "rawSql": "WITH topInsights as (\n  select \n    media_id,\n    max(exits) as exits, \n    max(impressions) as impressions, \n    max(reach) as reach, \n    max(taps_forward) as taps_forward, \n    max(taps_back) as taps_back,\n    max(\"createdAt\")\n  from \"StoryInsights\"\n  group by media_id\n)\n\nSELECT\n  s.media_id,\n  1000 * extract(epoch from s.timestamp::timestamp) as tspFrom,\n  ((1000 * extract(epoch from s.timestamp::timestamp)) + 86400000) as tspTo,\n  $__time(s.timestamp),\n  concat('<img width=\"70px\" height\"70px\" src=\"',case when media_type = 'VIDEO' then thumbnail_url\n    else media_url\n  end, '\"/>') as media_image,\n  topInsights.exits,\n  topInsights.impressions,\n  topInsights.reach,\n  topInsights.taps_forward,\n  topInsights.taps_back\nFROM \"Story\" s, topInsights\nwhere \n  s.media_id = topInsights.media_id\n  and $__timeFilter(s.timestamp)\nORDER BY s.timestamp desc",
           "refId": "A",
           "select": [
             [
@@ -218,8 +402,9 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Stories",
+      "transform": "table",
       "transformations": [],
-      "type": "table"
+      "type": "table-old"
     },
     {
       "aliasColors": {},
@@ -362,7 +547,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 13
       },
       "hiddenSeries": false,
       "id": 10,
@@ -442,7 +627,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:305",
           "format": "none",
           "label": null,
           "logBase": 1,
@@ -451,7 +635,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:306",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -483,5 +666,5 @@
   "timezone": "browser",
   "title": "Stories",
   "uid": "hPGbcEJGk",
-  "version": 15
+  "version": 24
 }
