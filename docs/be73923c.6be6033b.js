@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[17],{87:function(a){a.exports=JSON.parse('{"allTagsPath":"/instamate/blog/tags","slug":"docusaurus","name":"docusaurus","count":3,"permalink":"/instamate/blog/tags/docusaurus"}')}}]);
