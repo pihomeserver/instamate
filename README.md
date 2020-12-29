@@ -3,6 +3,8 @@ Instagram Mate
 
 Jump to [What's new?](https://github.com/pihomeserver/instamate/blob/master/CHANGELOG.md)
 
+Documentation can be found at https://pihomeserver.github.io/instamate-doc/
+
 A powerful, self-hosted data logger for your **Instagram** account
 
 * Written with NodeJS to collect data
