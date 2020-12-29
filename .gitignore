@@ -31,7 +31,6 @@ bower_components
 # Editors
 .idea
 .vscode
-*.code-workspace
 *.iml
 modules.xml
 *.ipr
@@ -52,3 +51,4 @@ Thumbs.db
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
+instamate.code-workspace
