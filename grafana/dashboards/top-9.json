@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609163508030,
+  "iteration": 1609321578152,
   "links": [],
   "panels": [
     {
@@ -84,6 +84,13 @@
         "textMode": "value"
       },
       "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "targets": [
         {
           "format": "table",
@@ -160,6 +167,13 @@
         "textMode": "value"
       },
       "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "targets": [
         {
           "format": "table",
@@ -236,6 +250,13 @@
         "textMode": "value"
       },
       "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "targets": [
         {
           "format": "table",
@@ -361,7 +382,7 @@
         "x": 8,
         "y": 4
       },
-      "id": 44,
+      "id": 56,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -377,7 +398,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -439,7 +460,7 @@
         "x": 16,
         "y": 4
       },
-      "id": 45,
+      "id": 57,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -455,7 +476,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -517,7 +538,7 @@
         "x": 0,
         "y": 11
       },
-      "id": 46,
+      "id": 58,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -533,7 +554,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -595,7 +616,7 @@
         "x": 8,
         "y": 11
       },
-      "id": 47,
+      "id": 59,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -611,7 +632,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -673,7 +694,7 @@
         "x": 16,
         "y": 11
       },
-      "id": 48,
+      "id": 60,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -689,7 +710,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -751,7 +772,7 @@
         "x": 0,
         "y": 18
       },
-      "id": 49,
+      "id": 61,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -767,7 +788,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -829,7 +850,7 @@
         "x": 8,
         "y": 18
       },
-      "id": 50,
+      "id": 62,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -845,7 +866,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -907,7 +928,7 @@
         "x": 16,
         "y": 18
       },
-      "id": 51,
+      "id": 63,
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -923,7 +944,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609163508030,
+      "repeatIteration": 1609321578152,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -1112,12 +1133,12 @@
         "name": "top_type",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "like_count",
             "value": "like_count"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "comments_count",
             "value": "comments_count"
           }
@@ -1143,5 +1164,5 @@
   "timezone": "",
   "title": "Top 9",
   "uid": "QpIPkEJMk",
-  "version": 20
+  "version": 21
 }

@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1607435528124,
+  "iteration": 1609779935603,
   "links": [],
   "panels": [
     {
@@ -271,7 +271,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  media_count\nFROM \"UserInsights\"\nWHERE\n  instagram_business_account = $user_id\nORDER BY insight_date\nLIMIT 1",
+          "rawSql": "SELECT\n  media_count\nFROM \"UserInsights\"\nWHERE\n  instagram_business_account = $user_id\nORDER BY insight_date desc\nLIMIT 1",
           "refId": "A",
           "select": [
             [
@@ -440,5 +440,5 @@
   "timezone": "",
   "title": "Overview",
   "uid": "iQDDUeTMk",
-  "version": 32
+  "version": 34
 }

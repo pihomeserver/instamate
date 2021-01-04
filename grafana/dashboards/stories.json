@@ -17,6 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
+  "iteration": 1609323838383,
   "links": [],
   "panels": [
     {
@@ -33,13 +34,253 @@
       "repeat": "user_id",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
       },
       "title": "$user_id",
       "type": "row"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select \n  count(media_id)\nfrom\n  \"Story\"\nwhere $__timeFilter(timestamp)\nand instagram_business_account = $user_id\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Published stories",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select avg(imp)\nfrom (select max(impressions) as imp\n\tfrom \"StoryInsights\" si \n\tgroup by media_id) maximp\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Average impressions",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 16,
+        "y": 1
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select avg(max_reach)\nfrom (select max(reach) as max_reach\n\tfrom \"StoryInsights\" si \n\tgroup by media_id) maxreach\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Average reach",
+      "type": "stat"
     },
     {
       "columns": [],
@@ -178,7 +419,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 4
       },
       "id": 6,
       "interval": "1m",
@@ -188,6 +429,13 @@
       },
       "pageSize": null,
       "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "showHeader": true,
       "sort": {
         "col": 3,
@@ -547,7 +795,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 10,
@@ -572,6 +820,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -627,14 +882,16 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:286",
           "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
+          "$$hashKey": "object:287",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -656,7 +913,46 @@
     "InstaMate"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        },
+        "datasource": "Instamate",
+        "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "error": null,
+        "hide": 2,
+        "includeAll": true,
+        "label": "user_id",
+        "multi": false,
+        "name": "user_id",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "ChrisSketching",
+            "value": "17841406965591441"
+          }
+        ],
+        "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-1M",
@@ -666,5 +962,5 @@
   "timezone": "browser",
   "title": "Stories",
   "uid": "hPGbcEJGk",
-  "version": 24
+  "version": 30
 }

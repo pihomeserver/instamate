@@ -1,5 +1,25 @@
 version: "3"
 services:
+  instamate:
+    image: pihomeserver/instamate:latest
+    restart: always
+    environment:
+      - HOST=${HOST:-"0.0.0.0"}
+      - PORT=${PORT:-"8080"}
+      - SESSION_SECRET=${SESSION_SECRET:-"Your Session Secret goes here"}
+      - POSTGRES_URI=${POSTGRES_URI:-"database:5432"}
+      - FACEBOOK_APPLICATIONID=${FACEBOOK_APPLICATIONID}
+      - FACEBOOK_APPLICATIONSECRET=${FACEBOOK_APPLICATIONSECRET}
+      - FACEBOOK_API_URL=${FACEBOOK_API_URL:-"https://graph.facebook.com/v9.0"}
+      - FACEBOOK_CALLBACK_URL=${FACEBOOK_CALLBACK_URL:-"https://your_reference.ngrok.io/auth/facebook/callback"}
+      - POSTGRES_USER=${POSTGRES_USER:-instamate}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret}
+      - POSTGRES_DB=instamate
+    ports:
+      - "8080:8080"
+    networks:
+      - instamate
+
   database:
     image: postgres:13
     restart: always
@@ -15,26 +35,12 @@ services:
       - instamate
     restart: unless-stopped
 
-  pgadmin:
-    container_name: pgadmin_container
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_USER:-admin@instamate.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-    volumes:
-       - pgadmin:/root/.pgadmin
-    ports:
-      - "${PGADMIN_PORT:-5050}:80"
-    networks:
-      - instamate
-    restart: unless-stopped
-
   grafana:
     image: grafana/grafana:latest
     environment:
       - DATABASE_USER=${POSTGRES_USER:-instamate}
       - DATABASE_PASS=${POSTGRES_PASSWORD:-secret}
-      - DATABASE_NAME=instamate
+      - DATABASE_NAME=${POSTGRES_DB:-instamate}
       - DATABASE_HOST=database
     ports:
       - 3000:3000
@@ -51,4 +57,3 @@ networks:
 volumes:
     postgres:
     instamate-grafana-data:
-    pgadmin:

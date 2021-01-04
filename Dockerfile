@@ -1,9 +1,14 @@
 FROM node:14.15-alpine3.12
 
-RUN apk update && apk add curl bash && rm -rf /var/cache/apk/*
+ARG TARGETPLATFORM
 
-# install node-prune (https://github.com/tj/node-prune)
-RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin
+RUN set -eux; \
+  apk update ; \
+  case "$TARGETPLATFORM" in \
+    linux/arm/v7) apk add --no-cache --virtual .build-instamate curl bash python3 python2 make g++ ;; \
+    linux/arm/v6) apk add --no-cache --virtual .build-instamate curl bash python2 make g++ ;; \
+    linux/amd64) apk add --no-cache --virtual .build-instamate curl bash make g++ ;; \
+  esac;
 
 WORKDIR /starter
 ENV NODE_ENV development
@@ -16,6 +21,10 @@ COPY . /starter
 
 # remove development dependencies
 RUN npm prune --production
+
+RUN set -eux; \
+  apk del .build-instamate; \
+  rm -rf /var/cache/apk/*
 
 EXPOSE 8080
 

@@ -11,7 +11,7 @@ const sequelize = new Sequelize('postgres://'+process.env.POSTGRES_USER+':'+proc
 sequelize.authenticate().then(() => {
   logger.info('Connection to database has been established successfully.');
 }).catch((err) => {
-  logger.error('Unable to connect to the database:', error);
+  logger.error('Unable to connect to the database:', err);
 });
 
 let db = {};

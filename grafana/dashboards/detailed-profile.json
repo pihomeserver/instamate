@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609059670656,
+  "iteration": 1609767612466,
   "links": [],
   "panels": [
     {
@@ -34,7 +34,7 @@
       "repeat": "user_id",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -90,7 +90,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -173,7 +173,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -256,7 +256,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -339,7 +339,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -422,7 +422,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -505,7 +505,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -588,7 +588,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -673,7 +673,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -780,7 +780,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -862,7 +862,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -946,7 +946,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1030,7 +1030,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1115,7 +1115,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1156,516 +1156,6 @@
       "type": "stat"
     },
     {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [
-            {
-              "from": "",
-              "id": 1,
-              "text": "",
-              "to": "",
-              "type": 1,
-              "value": "0"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "time"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "time: YYYY-MM-DD"
-              },
-              {
-                "id": "displayName",
-                "value": "Published date"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "followers_count"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Followers"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "followergain"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Gain"
-              },
-              {
-                "id": "custom.displayMode",
-                "value": "color-text"
-              },
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "red",
-                      "value": null
-                    },
-                    {
-                      "color": "rgb(200, 208, 217)",
-                      "value": 0
-                    },
-                    {
-                      "color": "green",
-                      "value": 1
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "follows_count"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Follows"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "followsgain"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Gain"
-              },
-              {
-                "id": "custom.displayMode",
-                "value": "color-text"
-              },
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "red",
-                      "value": null
-                    },
-                    {
-                      "color": "rgb(200, 208, 217)",
-                      "value": 0
-                    },
-                    {
-                      "color": "green",
-                      "value": 1
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "media_count"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Media"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "mediagain"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Gain"
-              },
-              {
-                "id": "custom.displayMode",
-                "value": "color-text"
-              },
-              {
-                "id": "thresholds",
-                "value": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "red",
-                      "value": null
-                    },
-                    {
-                      "color": "rgb(200, 208, 217)",
-                      "value": 0
-                    },
-                    {
-                      "color": "green",
-                      "value": 1
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 11,
-        "w": 24,
-        "x": 0,
-        "y": 9
-      },
-      "id": 39,
-      "options": {
-        "showHeader": true,
-        "sortBy": []
-      },
-      "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "with gainsData as (select\n\tui.insight_date::date,\n\tui.followers_count, ui.followers_count - lag(ui.followers_count, 1) over() as followerGain,\n\tui.follows_count, ui.follows_count - lag(ui.follows_count, 1) over() as followsGain,\n\tui.media_count, ui.media_count - lag(ui.media_count, 1) over() as mediaGain\nfrom \"UserInsights\" ui \nwhere ui.insight_date in (\n  \tselect max(ui.insight_date) as lastInsight\n  \tfrom \"UserInsights\" ui\n  \twhere extract(epoch from ui.insight_date)*1000 > $__from - 86400000\n  \tgroup by ui.insight_date::date\n  )\n  and extract(epoch from ui.insight_date)*1000 > $__from - 86400000\n)\n\nselect \n  $__time(insight_date),\n  followers_count, followerGain,\n  follows_count, followsGain,\n  media_count, mediaGain\nfrom\n  gainsData\nwhere $__timeFilter(insight_date)\norder by insight_date desc",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "timeColumn": "time",
-          "where": [
-            {
-              "name": "$__timeFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Detailed audience split",
-      "type": "table"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "followergain"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Followers"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "followsgain"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Follows"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "mediagain"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Media"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 24,
-        "x": 0,
-        "y": 20
-      },
-      "id": 40,
-      "options": {
-        "showHeader": true
-      },
-      "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "with gainsData as (select\n\tui.insight_date::date,\n\tui.followers_count, ui.followers_count - lag(ui.followers_count, 1) over() as followerGain,\n\tui.follows_count, ui.follows_count - lag(ui.follows_count, 1) over() as followsGain,\n\tui.media_count, ui.media_count - lag(ui.media_count, 1) over() as mediaGain\nfrom \"UserInsights\" ui \nwhere ui.insight_date in (\n  \tselect max(ui.insight_date) as lastInsight\n  \tfrom \"UserInsights\" ui\n  \twhere extract(epoch from ui.insight_date)*1000 > $__from - 86400000\n  \tgroup by ui.insight_date::date\n  )\n  and extract(epoch from ui.insight_date)*1000 > $__from - 86400000\n)\n\nselect \n  $__time(insight_date),\n  followerGain,\n  followsGain,\n  mediaGain\nfrom\n  gainsData\nwhere $__timeFilter(insight_date)",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "id"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "table": "\"UserProfiles\"",
-          "timeColumn": "id",
-          "timeColumnType": "int4",
-          "where": [
-            {
-              "name": "$__unixEpochFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Instagram growth",
-      "transformations": [
-        {
-          "id": "reduce",
-          "options": {
-            "includeTimeField": false,
-            "mode": "reduceFields",
-            "reducers": [
-              "sum"
-            ]
-          }
-        }
-      ],
-      "type": "table"
-    },
-    {
-      "aliasColors": {
-        "gainfollowers": "blue",
-        "lostfollowers": "red"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 11,
-        "w": 24,
-        "x": 0,
-        "y": 23
-      },
-      "hiddenSeries": false,
-      "id": 41,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "with gainsData as (select\n  ui.insight_date::date,\n\tudi.follower_count as newFollowers,\n\t@(ui.followers_count - lag(ui.followers_count, 1) over ()) as gainFollowers,\n\t@(udi.follower_count - (ui.followers_count - lag(ui.followers_count, 1) over ())) as lostFollowers\nfrom \"UserInsights\" ui \nleft join \"UserDetailedInsights\" udi on \n  ui.insight_date::date = udi.insight_date::date and \n  ui.instagram_business_account=udi.instagram_business_account\nwhere \n  ui.instagram_business_account = $user_id and\n  udi.follower_count is not null and\n  ui.insight_date in (\n  \tselect max(ui.insight_date) as lastInsight\n  \tfrom \"UserInsights\" ui\n  \twhere ui.instagram_business_account = $user_id\n  \tgroup by ui.insight_date::date\n  )\n  and extract(epoch from ui.insight_date)*1000 > $__from - 86400000\n)\n\nselect \n  $__time(insight_date),\n  newFollowers,\n  gainFollowers,\n  lostFollowers\nfrom gainsData\nwhere $__timeFilter(insight_date)\norder by insight_date asc",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "timeColumn": "time",
-          "where": [
-            {
-              "name": "$__timeFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Followers split",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transformations": [],
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -1683,7 +1173,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 9
       },
       "hiddenSeries": false,
       "id": 2,
@@ -1710,7 +1200,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1809,7 +1299,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 16
       },
       "hiddenSeries": false,
       "id": 42,
@@ -1838,7 +1328,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1941,7 +1431,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 48
+        "y": 23
       },
       "hiddenSeries": false,
       "id": 13,
@@ -1967,7 +1457,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2067,7 +1557,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 48
+        "y": 23
       },
       "hiddenSeries": false,
       "id": 14,
@@ -2093,7 +1583,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2195,7 +1685,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 55
+        "y": 30
       },
       "hiddenSeries": false,
       "id": 15,
@@ -2221,7 +1711,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2323,7 +1813,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 55
+        "y": 30
       },
       "hiddenSeries": false,
       "id": 16,
@@ -2349,7 +1839,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2452,7 +1942,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 62
+        "y": 37
       },
       "hiddenSeries": false,
       "id": 17,
@@ -2478,7 +1968,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2580,7 +2070,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 62
+        "y": 37
       },
       "hiddenSeries": false,
       "id": 18,
@@ -2606,7 +2096,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2708,7 +2198,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 69
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 19,
@@ -2734,7 +2224,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2836,7 +2326,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 69
+        "y": 44
       },
       "hiddenSeries": false,
       "id": 20,
@@ -2862,7 +2352,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2971,12 +2461,12 @@
         "name": "user_id",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "All",
             "value": "$__all"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "ChrisSketching",
             "value": "17841406965591441"
           }
@@ -3002,5 +2492,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 62
+  "version": 66
 }

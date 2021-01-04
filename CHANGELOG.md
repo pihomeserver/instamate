@@ -1,6 +1,16 @@
 # Changelog
 ---------
 
+### 0.0.4 (January 05, 2021)
+- Grafana
+  - Bug fixing
+  - Create a dashboard dedicated to followers, follows and media evolution
+- Postgresql database
+  - Correction of the user model
+- Node backend
+  - Correction of error handling in the database connection
+  - Update of the Dockerfile
+
 ### 0.0.3 (December 28, 2020)
 - Documentation
   - Create draft for documentation
