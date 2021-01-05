@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609764773369,
+  "iteration": 1609852475387,
   "links": [],
   "panels": [
     {
@@ -576,20 +576,9 @@
         "label": "user_id",
         "multi": false,
         "name": "user_id",
-        "options": [
-          {
-            "selected": false,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": true,
-            "text": "ChrisSketching",
-            "value": "17841406965591441"
-          }
-        ],
+        "options": [],
         "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -609,5 +598,5 @@
   "timezone": "",
   "title": "Detailed audience",
   "uid": "020bovaMz",
-  "version": 3
+  "version": 5
 }

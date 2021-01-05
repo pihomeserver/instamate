@@ -1,7 +1,7 @@
 Instagram Mate
 =======================
 
-Jump to [What's new?](https://github.com/pihomeserver/instamate/blob/master/CHANGELOG.md)
+Jump to [What's new ?](https://github.com/pihomeserver/instamate/blob/master/CHANGELOG.md)
 
 Documentation can be found at https://pihomeserver.github.io/instamate-doc/
 
@@ -11,54 +11,11 @@ A powerful, self-hosted data logger for your **Instagram** account
 * Data is stored in a Postgres database
 * Visualization and data analysis with Grafana
 
-### Features
 
-The current application collects data and insights of an Instagram Business account.
-
-Current information stored in the databased are :
-- User profile
-  - Biography
-  - Profile picture
-  - Insights (every 15 minutes):
-    - media
-    - followers
-    - follows
-  - Detailed insights (once a day)
-    - Click on e-mail link if exists
-    - Click on website link if exists
-    - Impressions of the profile
-    - Click on phone number if exists
-    - Profile views
-    - Profiles reach
-    - New followers gain
-- Published media
-  - Publication date
-  - Caption
-  - Comments count
-  - Likes count
-  - Engagement total
-  - Impressions count
-  - Profiles reached by the publication
-  - Saved count
-  - Media type
-  - Media screenshot
-- Published stories
-  - Screenshot of the published story
-  - Publication date
-  - Caption
-  - Exits count
-  - Impressions count
-  - Reached profiles count
-  - Replies (even if wrong due to EU GDPR)
-  - Taps forward count
-  - Taps backward count
-
-**Dashboards**
-
-All of these data can be reused in Grafana to create monitoring dashboards
-![Example 1](https://github.com/pihomeserver/instamate/blob/main/public/screenshots/screen1.png?raw=true)
-![Example 2](https://github.com/pihomeserver/instamate/blob/main/public/screenshots/screen2.png?raw=true)
-![Example 3](https://github.com/pihomeserver/instamate/blob/main/public/screenshots/screen3.png?raw=true)
+Documentation
+-------
+All information is here : https://pihomeserver.github.io/instamate-doc/
+(Under construction)
 
 License
 -------

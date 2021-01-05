@@ -17,31 +17,9 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1608734127440,
+  "iteration": 1609852524767,
   "links": [],
   "panels": [
-    {
-      "collapsed": false,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 4,
-      "panels": [],
-      "repeat": "user_id",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "title": "$user_id",
-      "type": "row"
-    },
     {
       "datasource": null,
       "description": "",
@@ -72,7 +50,7 @@
         "h": 4,
         "w": 3,
         "x": 0,
-        "y": 1
+        "y": 0
       },
       "id": 9,
       "links": [],
@@ -154,7 +132,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 1
+        "y": 0
       },
       "id": 7,
       "options": {
@@ -237,7 +215,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 1
+        "y": 0
       },
       "id": 14,
       "options": {
@@ -320,7 +298,7 @@
         "h": 3,
         "w": 3,
         "x": 9,
-        "y": 1
+        "y": 0
       },
       "id": 18,
       "options": {
@@ -403,7 +381,7 @@
         "h": 3,
         "w": 3,
         "x": 15,
-        "y": 1
+        "y": 0
       },
       "id": 15,
       "options": {
@@ -491,7 +469,7 @@
         "h": 3,
         "w": 3,
         "x": 18,
-        "y": 1
+        "y": 0
       },
       "id": 20,
       "options": {
@@ -579,7 +557,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 1
+        "y": 0
       },
       "id": 23,
       "options": {
@@ -662,7 +640,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 4
+        "y": 3
       },
       "id": 16,
       "options": {
@@ -745,7 +723,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 4
+        "y": 3
       },
       "id": 17,
       "options": {
@@ -828,7 +806,7 @@
         "h": 3,
         "w": 3,
         "x": 9,
-        "y": 4
+        "y": 3
       },
       "id": 19,
       "options": {
@@ -916,7 +894,7 @@
         "h": 3,
         "w": 3,
         "x": 18,
-        "y": 4
+        "y": 3
       },
       "id": 21,
       "options": {
@@ -1004,7 +982,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 4
+        "y": 3
       },
       "id": 22,
       "options": {
@@ -1093,7 +1071,7 @@
         "h": 2,
         "w": 3,
         "x": 0,
-        "y": 5
+        "y": 4
       },
       "id": 24,
       "options": {
@@ -1161,7 +1139,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 6
       },
       "hiddenSeries": false,
       "id": 12,
@@ -1287,7 +1265,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 13
       },
       "hiddenSeries": false,
       "id": 13,
@@ -1439,20 +1417,9 @@
         "label": "user_id",
         "multi": false,
         "name": "user_id",
-        "options": [
-          {
-            "selected": false,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "ChrisSketching",
-            "value": "17841406965591441"
-          }
-        ],
+        "options": [],
         "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -1472,5 +1439,5 @@
   "timezone": "",
   "title": "Media",
   "uid": "LQaqKWJMz",
-  "version": 61
+  "version": 64
 }

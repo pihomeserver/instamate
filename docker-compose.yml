@@ -4,8 +4,8 @@ services:
     image: pihomeserver/instamate:latest
     restart: always
     environment:
-      - HOST=${HOST:-"0.0.0.0"}
-      - PORT=${PORT:-"8080"}
+      - HOST=${INSTAMATE_HOST:-"0.0.0.0"}
+      - PORT=${INSTAMATE_PORT:-"8080"}
       - SESSION_SECRET=${SESSION_SECRET:-"Your Session Secret goes here"}
       - POSTGRES_URI=${POSTGRES_URI:-"database:5432"}
       - FACEBOOK_APPLICATIONID=${FACEBOOK_APPLICATIONID}

@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609323838383,
+  "iteration": 1609852662821,
   "links": [],
   "panels": [
     {
@@ -929,20 +929,9 @@
         "label": "user_id",
         "multi": false,
         "name": "user_id",
-        "options": [
-          {
-            "selected": false,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": true,
-            "text": "ChrisSketching",
-            "value": "17841406965591441"
-          }
-        ],
+        "options": [],
         "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -962,5 +951,5 @@
   "timezone": "browser",
   "title": "Stories",
   "uid": "hPGbcEJGk",
-  "version": 30
+  "version": 32
 }

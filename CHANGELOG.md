@@ -1,6 +1,14 @@
 # Changelog
 ---------
 
+### 0.0.5 (January 06, 2021)
+- Documentation
+  - Add documentation
+- Grafana
+  - Bug fixing on dashboards
+  - Create Dockerfile
+  - Create files for automatic provisionning of the docker image
+
 ### 0.0.4 (January 05, 2021)
 - Grafana
   - Bug fixing

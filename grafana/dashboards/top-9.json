@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609321578152,
+  "iteration": 1609852704353,
   "links": [],
   "panels": [
     {
@@ -398,7 +398,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -476,7 +476,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -554,7 +554,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -632,7 +632,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -710,7 +710,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -788,7 +788,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -866,7 +866,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -944,7 +944,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609321578152,
+      "repeatIteration": 1609852704353,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -1015,20 +1015,9 @@
         "label": "user_id",
         "multi": false,
         "name": "user_id",
-        "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "ChrisSketching",
-            "value": "17841406965591441"
-          }
-        ],
+        "options": [],
         "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -1120,8 +1109,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "comments_count",
-          "value": "comments_count"
+          "text": "like_count",
+          "value": "like_count"
         },
         "datasource": "Instamate",
         "definition": "select X from (values('like_count'), ('comments_count')) as val(X)",
@@ -1164,5 +1153,5 @@
   "timezone": "",
   "title": "Top 9",
   "uid": "QpIPkEJMk",
-  "version": 21
+  "version": 23
 }
