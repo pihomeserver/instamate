@@ -8,6 +8,8 @@
   - Bug fixing on dashboards
   - Create Dockerfile
   - Create files for automatic provisionning of the docker image
+- Node backend
+  - Update of the Dockerfile to support arm64 container
 
 ### 0.0.4 (January 05, 2021)
 - Grafana

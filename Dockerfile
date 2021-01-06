@@ -6,7 +6,7 @@ RUN set -eux; \
   apk update ; \
   case "$TARGETPLATFORM" in \
     linux/arm/v7) apk add --no-cache --virtual .build-instamate curl bash python3 python2 make g++ ;; \
-    linux/arm/v6) apk add --no-cache --virtual .build-instamate curl bash python2 make g++ ;; \
+    linux/arm64) apk add --no-cache --virtual .build-instamate curl bash python3 python2 make g++ ;; \
     linux/amd64) apk add --no-cache --virtual .build-instamate curl bash make g++ ;; \
   esac;
 
