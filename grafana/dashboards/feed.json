@@ -17,6 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
+  "iteration": 1610641486669,
   "links": [],
   "panels": [
     {
@@ -853,7 +854,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  now() as time,\n  count(media_id) as value,\n  media_type as metric\nFROM\n  \"Media\"\nwhere instagram_business_account = $user_id\nGROUP BY 3\nORDER BY metric DESC;\n",
+          "rawSql": "SELECT\n  now() as time,\n  count(media_id) as value,\n  media_type as metric\nFROM\n  \"Media\"\nwhere instagram_business_account = $user_id\n  and $__timeFilter(timestamp)\nGROUP BY 3\nORDER BY metric DESC;\n",
           "refId": "A",
           "select": [
             [
@@ -1106,5 +1107,5 @@
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 99
+  "version": 100
 }
