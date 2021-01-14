@@ -17,7 +17,7 @@ services:
       - POSTGRES_DB=instamate
       - POSTGRES_PORT=${POSTGRES_PORT:-"5432"}
     ports:
-      - "${INSTAMATE_PORT}:${INSTAMATE_PORT}"
+      - "${INSTAMATE_PORT:-'8080'}:${INSTAMATE_PORT:-'8080'}"
     networks:
       - instamate
 
@@ -31,20 +31,20 @@ services:
     volumes:
       - ./instamate-db:/var/lib/postgresql/data
     ports:
-      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+      - "${POSTGRES_PORT:-'5432'}:${POSTGRES_PORT:-'5432'}"
     networks:
       - instamate
     restart: unless-stopped
 
   grafana:
-    image: pihomeserver/pihomeserver-instamate:latest
+    image: pihomeserver/instamate-grafana:latest
     environment:
       - DATABASE_USER=${POSTGRES_USER:-instamate}
       - DATABASE_PASS=${POSTGRES_PASSWORD:-secret}
       - DATABASE_NAME=${POSTGRES_DB:-instamate}
       - DATABASE_HOST=${POSTGRES_URI:-database}
     ports:
-      - "${GRAFANA_PORT}:${GRAFANA_PORT}"
+      - "${GRAFANA_PORT:-'3000'}:${GRAFANA_PORT:-'3000'}"
     volumes:
       - instamate-grafana-data:/var/lib/grafana
     networks:
