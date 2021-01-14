@@ -948,7 +948,7 @@
           "$$hashKey": "object:278",
           "decimals": 0,
           "format": "none",
-          "label": "Likes",
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -2039,5 +2039,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 76
+  "version": 77
 }
