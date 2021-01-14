@@ -17,7 +17,6 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1610612354943,
   "links": [],
   "panels": [
     {
@@ -781,7 +780,13 @@
       }
     },
     {
+      "aliasColors": {},
+      "breakPoint": "50%",
       "cacheTimeout": null,
+      "combine": {
+        "label": "Others",
+        "threshold": 0
+      },
       "datasource": null,
       "fieldConfig": {
         "defaults": {
@@ -815,18 +820,24 @@
           }
         ]
       },
+      "fontSize": "80%",
+      "format": "short",
       "gridPos": {
-        "h": 6,
+        "h": 9,
         "w": 5,
         "x": 19,
         "y": 10
       },
       "id": 11,
       "interval": null,
-      "links": [],
-      "options": {
-        "showHeader": true
+      "legend": {
+        "show": true,
+        "values": true
       },
+      "legendType": "Under graph",
+      "links": [],
+      "nullPointMode": "connected",
+      "pieType": "pie",
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
@@ -835,13 +846,14 @@
           "value": "17841406965591441"
         }
       },
+      "strokeWidth": 1,
       "targets": [
         {
-          "format": "table",
+          "format": "time_series",
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  media_type,\n  count(media_id) as total\nFROM\n  \"Media\"\ngroup by media_type\norder by total desc",
+          "rawSql": "SELECT\n  now() as time,\n  count(media_id) as value,\n  media_type as metric\nFROM\n  \"Media\"\nwhere instagram_business_account = $user_id\nGROUP BY 3\nORDER BY metric DESC;\n",
           "refId": "A",
           "select": [
             [
@@ -866,7 +878,8 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Published media per type",
-      "type": "table"
+      "type": "grafana-piechart-panel",
+      "valueName": "total"
     },
     {
       "datasource": null,
@@ -1060,9 +1073,20 @@
         "label": "user_id",
         "multi": false,
         "name": "user_id",
-        "options": [],
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "ChrisSketching",
+            "value": "17841406965591441"
+          }
+        ],
         "query": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
-        "refresh": 1,
+        "refresh": 0,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -1082,5 +1106,5 @@
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 92
+  "version": 99
 }
