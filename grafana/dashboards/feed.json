@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609852512448,
+  "iteration": 1610612354943,
   "links": [],
   "panels": [
     {
@@ -224,7 +224,7 @@
       },
       "fontSize": "100%",
       "gridPos": {
-        "h": 14,
+        "h": 9,
         "w": 24,
         "x": 0,
         "y": 1
@@ -467,7 +467,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "with currentFollowers as (\n  SELECT followers_count\n  FROM \"UserInsights\"\n  WHERE instagram_business_account = $user_id\n  ORDER BY insight_date desc\n  LIMIT 1\n), maxMediaInsight as (select\n\tmedia_id, max(\"createdAt\") as last_insight\nfrom \"MediaInsights\" mi\ngroup by mi.media_id)\n\nselect\n\tm.media_id,\n\t1000 * extract(epoch from timestamp::timestamp) as tsp,\n  $__time(timestamp),\n  concat('<img width=\"70px\" height\"70px\" src=\"',case when media_type = 'VIDEO' then thumbnail_url\n    else media_url\n  end, '\"/>') as media_image,\n  mi.like_count,\n  mi.comments_count, \n  mi.saved,\n\t(cast (mi.engagement as float) / currentFollowers.followers_count)*100 as er_post,\n\t((cast (mi.comments_count as float) + mi.comments_count + mi.like_count + mi.saved)/ currentFollowers.followers_count)*100 as er_factored,\n\t(cast (mi.reach as float) / currentFollowers.followers_count)*100 as er_reach,\n\t(cast (mi.impressions as float) / currentFollowers.followers_count)*100 as er_impressions\nfrom\n\t\"Media\" m, \n\t\"MediaInsights\" mi,\n\tmaxMediaInsight, \n\tcurrentFollowers\nwhere\n\tm.media_id = maxMediaInsight.media_id\n\tand m.instagram_business_account = $user_id\n\tand m.media_id = mi.media_id \n\tand mi.\"createdAt\" = maxMediaInsight.last_insight\n\tand extract(epoch from m.\"timestamp\"::date)*1000 >= $__from\norder by m.\"timestamp\" desc \nlimit 20",
+          "rawSql": "with currentFollowers as (\n  SELECT followers_count\n  FROM \"UserInsights\"\n  WHERE instagram_business_account = $user_id\n  ORDER BY insight_date desc\n  LIMIT 1\n), maxMediaInsight as (select\n\tmedia_id, max(\"createdAt\") as last_insight\nfrom \"MediaInsights\" mi\ngroup by mi.media_id)\n\nselect\n\tm.media_id,\n\t1000 * extract(epoch from timestamp::timestamp) as tsp,\n  $__time(timestamp),\n  concat('<img width=\"70px\" height\"70px\" src=\"',case when media_type = 'VIDEO' then thumbnail_url\n    else media_url\n  end, '\"/>') as media_image,\n  mi.like_count,\n  mi.comments_count, \n  mi.saved,\n\t(cast (mi.engagement as float) / currentFollowers.followers_count)*100 as er_post,\n\t((cast (mi.comments_count as float) + mi.comments_count + mi.like_count + mi.saved)/ currentFollowers.followers_count)*100 as er_factored,\n\t(cast (mi.reach as float) / currentFollowers.followers_count)*100 as er_reach,\n\t(cast (mi.impressions as float) / currentFollowers.followers_count)*100 as er_impressions\nfrom\n\t\"Media\" m, \n\t\"MediaInsights\" mi,\n\tmaxMediaInsight, \n\tcurrentFollowers\nwhere\n\tm.media_id = maxMediaInsight.media_id\n\tand m.instagram_business_account = $user_id\n\tand m.media_id = mi.media_id \n\tand mi.\"createdAt\" = maxMediaInsight.last_insight\n\tand extract(epoch from m.\"timestamp\"::date)*1000 >= $__from\norder by m.\"timestamp\" desc \n--limit 20",
           "refId": "A",
           "select": [
             [
@@ -497,6 +497,90 @@
       "transform": "table",
       "transformations": [],
       "type": "table-old"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 10
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  avg(like_count)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id\n  and $__timeFilter(timestamp)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"UserProfiles\"",
+          "timeColumn": "id",
+          "timeColumnType": "int4",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Avg Likes",
+      "type": "stat"
     },
     {
       "aliasColors": {},
@@ -582,10 +666,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 10,
-        "w": 24,
-        "x": 0,
-        "y": 15
+        "h": 9,
+        "w": 16,
+        "x": 3,
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 9,
@@ -695,6 +779,262 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "media_type"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Media type"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 5,
+        "x": 19,
+        "y": 10
+      },
+      "id": 11,
+      "interval": null,
+      "links": [],
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  media_type,\n  count(media_id) as total\nFROM\n  \"Media\"\ngroup by media_type\norder by total desc",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Published media per type",
+      "type": "table"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 13
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  avg(comments_count)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id\n  and $__timeFilter(timestamp)",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"UserProfiles\"",
+          "timeColumn": "id",
+          "timeColumnType": "int4",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Avg Comments",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 16
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "targets": [
+        {
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "select avg(reqSaved.totalSaved)\nfrom (\n  select distinct(mi.media_id), max(mi.saved) as totalSaved\n  from \"MediaInsights\" mi, \"Media\" m\n  where saved is not null\n    and mi.media_id = m.media_id\n    and m.instagram_business_account = $user_id\n    and $__timeFilter(m.timestamp)\n  group by mi.media_id) as reqSaved",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "id"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"UserProfiles\"",
+          "timeColumn": "id",
+          "timeColumnType": "int4",
+          "where": [
+            {
+              "name": "$__unixEpochFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Avg Saved",
+      "type": "stat"
     }
   ],
   "refresh": "",
@@ -742,5 +1082,5 @@
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 78
+  "version": 92
 }

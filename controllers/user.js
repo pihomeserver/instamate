@@ -29,10 +29,6 @@ exports.logout = (req, res) => {
   });
 };
 
-/**
- * GET /analyse
- * Analyse current logged user to extract Instagram information
- */
 exports.getUserInsights = (req, res) => {
   insightsController.getAllUsersInsights().then( () => {
     res.redirect('/');
@@ -43,10 +39,16 @@ exports.getUserInsights = (req, res) => {
   });
 }
 
-/**
- * GET /analyse
- * Analyse current logged user to extract Instagram information
- */
+exports.getUserLifetimeInsights = (req, res) => {
+  insightsController.getAllUsersLifetimeInsights().then( () => {
+    res.redirect('/');
+  })
+  .catch((error) => {
+    req.flash('errors', error);
+    return res.redirect('/error', error);
+  });
+}
+
 exports.getUserMedias = (req, res) => {
   insightsController.getAllUsersMedia()
   .then( () => {

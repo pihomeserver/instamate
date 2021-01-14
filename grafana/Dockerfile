@@ -13,7 +13,8 @@ ENV GF_ANALYTICS_REPORTING_ENABLED=FALSE \
 
 USER root
 
-RUN grafana-cli --pluginsDir "${GF_PATHS_PLUGINS}" plugins install dalvany-image-panel 2.2.0
+RUN grafana-cli --pluginsDir "${GF_PATHS_PLUGINS}" plugins install dalvany-image-panel 2.2.0 && \
+    grafana-cli --pluginsDir "${GF_PATHS_PLUGINS}" --pluginUrl https://github.com/panodata/grafana-map-panel/releases/download/0.14.0/grafana-map-panel-0.14.0.zip plugins install grafana-worldmap-panel-ng
 
 USER grafana
 

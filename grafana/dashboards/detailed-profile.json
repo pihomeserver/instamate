@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609852495557,
+  "iteration": 1610612255684,
   "links": [],
   "panels": [
     {
@@ -34,7 +34,7 @@
       "repeat": "user_id",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -70,7 +70,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
+        "w": 3,
         "x": 0,
         "y": 1
       },
@@ -90,7 +90,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -152,7 +152,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 2,
+        "x": 3,
         "y": 1
       },
       "id": 7,
@@ -173,7 +173,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -235,7 +235,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 5,
+        "x": 6,
         "y": 1
       },
       "id": 6,
@@ -256,7 +256,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -267,7 +267,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  followers_count\nFROM \"UserInsights\"\nWHERE\n  instagram_business_account = $user_id\nORDER BY insight_date DESC\nLIMIT 1",
+          "rawSql": "SELECT\n  followers_count\nFROM \"UserInsights\"\nWHERE\n  instagram_business_account = $user_id\nORDER BY insight_date DESC\nlimit 1\n",
           "refId": "A",
           "select": [
             [
@@ -318,7 +318,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 8,
+        "x": 9,
         "y": 1
       },
       "id": 22,
@@ -339,7 +339,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -401,7 +401,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 11,
+        "x": 12,
         "y": 1
       },
       "id": 25,
@@ -422,7 +422,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -459,7 +459,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Likes",
+      "title": "Lifetime likes",
       "type": "stat"
     },
     {
@@ -484,7 +484,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 14,
+        "x": 15,
         "y": 1
       },
       "id": 32,
@@ -505,7 +505,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -542,7 +542,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Comments",
+      "title": "Lifetime comments",
       "type": "stat"
     },
     {
@@ -567,7 +567,7 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 17,
+        "x": 18,
         "y": 1
       },
       "id": 33,
@@ -588,7 +588,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -625,7 +625,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Saved",
+      "title": "Lifetime saved",
       "type": "stat"
     },
     {
@@ -652,450 +652,8 @@
       "gridPos": {
         "h": 3,
         "w": 3,
-        "x": 20,
+        "x": 21,
         "y": 1
-      },
-      "id": 29,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": true,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "WITH mediaCounts as (\nSELECT\n  sum(like_count) as likeCount,\n  sum(comments_count) as commentsCount\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id\n), savedCount as (\nselect sum(reqSaved.totalSaved) as totSaved\nfrom (select distinct(media_id), max(saved) as totalSaved\nfrom \"MediaInsights\" mi\nwhere saved is not null\ngroup by media_id) as reqSaved)\n\nSELECT\n  cast ((mediaCounts.likeCount + mediaCounts.commentsCount + savedCount.totSaved) as float) / followers_count as engRate\nFROM \"UserInsights\", mediaCounts, savedCount\nWHERE\n  instagram_business_account = $user_id\nORDER by insight_date desc\nLIMIT 1",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "id"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "table": "\"UserProfiles\"",
-          "timeColumn": "id",
-          "timeColumnType": "int4",
-          "where": [
-            {
-              "name": "$__unixEpochFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "ER Lifetime",
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "media_type"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Media type"
-              },
-              {
-                "id": "custom.width",
-                "value": 200
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "total"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Total published"
-              },
-              {
-                "id": "custom.displayMode",
-                "value": "basic"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 0,
-        "y": 4
-      },
-      "id": 28,
-      "options": {
-        "showHeader": true
-      },
-      "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": true,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "SELECT\n  media_type,\n  count(media_id) as total\nFROM\n  \"Media\"\ngroup by media_type\norder by total desc",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "timeColumn": "time",
-          "where": [
-            {
-              "name": "$__timeFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Published media per type",
-      "type": "table"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 11,
-        "y": 4
-      },
-      "id": 35,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": true,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "SELECT\n  cast (sum(like_count) as float) / count(media_id)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "id"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "table": "\"UserProfiles\"",
-          "timeColumn": "id",
-          "timeColumnType": "int4",
-          "where": [
-            {
-              "name": "$__unixEpochFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Avg Likes",
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 14,
-        "y": 4
-      },
-      "id": 36,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": true,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "SELECT\n  cast (sum(comments_count) as float) / count(media_id)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "id"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "table": "\"UserProfiles\"",
-          "timeColumn": "id",
-          "timeColumnType": "int4",
-          "where": [
-            {
-              "name": "$__unixEpochFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Avg Comments",
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 17,
-        "y": 4
-      },
-      "id": 37,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": true,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "targets": [
-        {
-          "format": "table",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "select cast (sum(reqSaved.totalSaved) as float) / count(reqSaved.totalMedia)\nfrom (select distinct(mi.media_id), max(mi.saved) as totalSaved, count(m.media_id) as totalMedia\nfrom \"MediaInsights\" mi, \"Media\" m\nwhere saved is not null and mi.media_id = m.media_id and m.instagram_business_account = $user_id\ngroup by mi.media_id) as reqSaved",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "id"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "table": "\"UserProfiles\"",
-          "timeColumn": "id",
-          "timeColumnType": "int4",
-          "where": [
-            {
-              "name": "$__unixEpochFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Avg Saved",
-      "type": "stat"
-    },
-    {
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 20,
-        "y": 4
       },
       "id": 34,
       "options": {
@@ -1115,7 +673,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1173,7 +731,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 4
       },
       "hiddenSeries": false,
       "id": 2,
@@ -1200,7 +758,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1299,7 +857,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 16
+        "y": 11
       },
       "hiddenSeries": false,
       "id": 42,
@@ -1328,7 +886,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1431,7 +989,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 23
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 13,
@@ -1457,7 +1015,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1557,7 +1115,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 23
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 14,
@@ -1583,7 +1141,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1685,7 +1243,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 30
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 15,
@@ -1711,7 +1269,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1813,7 +1371,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 30
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 16,
@@ -1839,7 +1397,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1942,7 +1500,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 37
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 17,
@@ -1968,7 +1526,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2070,7 +1628,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 37
+        "y": 32
       },
       "hiddenSeries": false,
       "id": 18,
@@ -2096,7 +1654,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2198,7 +1756,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 44
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 19,
@@ -2224,7 +1782,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2326,7 +1884,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 44
+        "y": 39
       },
       "hiddenSeries": false,
       "id": 20,
@@ -2352,7 +1910,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -2481,5 +2039,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 68
+  "version": 75
 }

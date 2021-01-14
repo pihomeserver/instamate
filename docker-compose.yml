@@ -7,7 +7,7 @@ services:
       - HOST=${INSTAMATE_HOST:-"0.0.0.0"}
       - PORT=${INSTAMATE_PORT:-"8080"}
       - SESSION_SECRET=${SESSION_SECRET:-"Your Session Secret goes here"}
-      - POSTGRES_URI=${POSTGRES_URI:-"database:5432"}
+      - POSTGRES_URI=${POSTGRES_URI:-"database"}
       - FACEBOOK_APPLICATIONID=${FACEBOOK_APPLICATIONID}
       - FACEBOOK_APPLICATIONSECRET=${FACEBOOK_APPLICATIONSECRET}
       - FACEBOOK_API_URL=${FACEBOOK_API_URL:-"https://graph.facebook.com/v9.0"}
@@ -15,8 +15,9 @@ services:
       - POSTGRES_USER=${POSTGRES_USER:-instamate}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret}
       - POSTGRES_DB=instamate
+      - POSTGRES_PORT=${POSTGRES_PORT:-"5432"}
     ports:
-      - "8080:8080"
+      - "${INSTAMATE_PORT}:${INSTAMATE_PORT}"
     networks:
       - instamate
 
@@ -26,11 +27,11 @@ services:
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-instamate}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret}
-      - POSTGRES_DB=instamate
+      - POSTGRES_DB=${POSTGRES_DB:-instamate}
     volumes:
       - ./instamate-db:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     networks:
       - instamate
     restart: unless-stopped
@@ -41,9 +42,9 @@ services:
       - DATABASE_USER=${POSTGRES_USER:-instamate}
       - DATABASE_PASS=${POSTGRES_PASSWORD:-secret}
       - DATABASE_NAME=${POSTGRES_DB:-instamate}
-      - DATABASE_HOST=database
+      - DATABASE_HOST=${POSTGRES_URI:-database}
     ports:
-      - 3000:3000
+      - "${GRAFANA_PORT}:${GRAFANA_PORT}"
     volumes:
       - instamate-grafana-data:/var/lib/grafana
     networks:

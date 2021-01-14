@@ -83,6 +83,7 @@ app.get('/', homeController.index);
 app.get('/login', userController.getLogin);
 app.get('/logout', userController.logout);
 app.get('/analyse', userController.getUserInsights);
+app.get('/lifetime', userController.getUserLifetimeInsights);
 app.get('/media', userController.getUserMedias);
 app.get('/stories', userController.getStories);
 app.get('/error', homeController.error);

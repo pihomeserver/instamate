@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609852524767,
+  "iteration": 1610373538166,
   "links": [],
   "panels": [
     {
@@ -67,13 +67,6 @@
         "width": 75
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -150,13 +143,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -233,13 +219,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -316,13 +295,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -399,13 +371,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -487,13 +452,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -575,13 +533,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -658,13 +609,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -741,13 +685,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -824,13 +761,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -912,13 +842,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -1000,13 +923,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -1078,13 +994,6 @@
         "showHeader": false
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -1163,13 +1072,6 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1274,7 +1176,7 @@
         "current": false,
         "max": false,
         "min": false,
-        "show": true,
+        "show": false,
         "total": false,
         "values": false
       },
@@ -1289,13 +1191,6 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1393,12 +1288,12 @@
         "name": "media_id",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "17902484194621111",
             "value": "17902484194621111"
           }
         ],
-        "query": "17902484194621111",
+        "query": "17900867092706943",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -1439,5 +1334,5 @@
   "timezone": "",
   "title": "Media",
   "uid": "LQaqKWJMz",
-  "version": 64
+  "version": 65
 }

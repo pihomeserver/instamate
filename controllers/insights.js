@@ -37,6 +37,16 @@ cron.schedule('*/15 * * * *', () => {
   })
 });
 
+cron.schedule('0 */8 * * *', () => {
+  logger.info('CRON - Insights - Updating lifetime insights for all users');
+  insights.getAllUsersLifetimeInsights().then(() => {
+    logger.info('CRON - Insights (lifetime) - Success');
+  }).catch( (err) => {
+    logger.error('CRON - Insights (lifetime) - Error');
+    logger.error(err)
+  })
+});
+
 /**
  * Get insights for all users with a token
  */
@@ -196,6 +206,55 @@ function updateUserDetailedInsights(user) {
         }
       }
       return Promise.all(userDataCreation);
+    })
+}
+
+/**
+ * Get insights for all users with a token
+ */
+exports.getAllUsersLifetimeInsights = () => {
+  return db.User.findAll().then( (users) => {
+    let promisesInsights = []
+    for( let user of users) {
+      promisesInsights.push(insights.getUserLifetimeInsights(user))
+    }
+    return Promise.all(promisesInsights)
+  })
+}
+
+exports.getUserLifetimeInsights = (user) => {
+  let actions = []
+  actions.push(getUserCountriesInsights(user))
+  return Promise.all(actions)
+};
+
+function getUserCountriesInsights(user) {
+  return db.Page.findAll({ attributes: ['instagram_business_account'], where:{facebookId: user.id}})
+    .then( (igIDs) => {
+      let promisesAllCountriesInsights = []
+      for (let igID of igIDs) {
+        promisesAllCountriesInsights.push(axios.get(`${process.env.FACEBOOK_API_URL}/${igID.instagram_business_account}/insights?metric=audience_country&period=lifetime&access_token=${user.token}`))
+      }
+      return Promise.all(promisesAllCountriesInsights)
+    })
+    .then( (countriesInsights) => {
+      let insightsUpdates = []
+      for (let countriesInsightUser of countriesInsights) {
+        let insights = countriesInsightUser.data
+        const igID = insights.data[0].id.split('/')[0]
+        const insightDate = insights.data[0].values[0].end_time
+        const insightType = 'country'
+        for (let countryCode in insights.data[0].values[0].value) {
+          insightsUpdates.push(db.UserLifetimeInsight.upsert({
+            instagram_business_account: igID,
+            insight_date: insightDate,
+            insight_type: insightType,
+            key: countryCode,
+            value: insights.data[0].values[0].value[countryCode]
+          }))
+        }
+      }
+      return Promise.all(insightsUpdates)
     })
 }
 

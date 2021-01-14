@@ -1,6 +1,22 @@
 # Changelog
 ---------
 
+### 0.0.7 (January 14, 2021)
+- Grafana
+  - Bug fixing of dashboards
+  - Update of dashboards
+  - Add world map plugin
+- Node backend
+  - Add new model for lifetime insights
+  - Add cron task (every 8 hours) to retrieve lifetime insights
+  - Add audience_country metric
+
+### 0.0.6 (January 06, 2021)
+- Documentation
+  - Add information about calculation of engagement rates
+- Node backend
+  - Update Dockerfile to use environment variable for the port exposed
+
 ### 0.0.5 (January 06, 2021)
 - Documentation
   - Add documentation

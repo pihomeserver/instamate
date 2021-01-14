@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609852475387,
+  "iteration": 1610613156887,
   "links": [],
   "panels": [
     {
@@ -34,7 +34,7 @@
       "repeat": "user_id",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -231,11 +231,23 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Gain"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 30
+              }
+            ]
           }
         ]
       },
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 24,
         "x": 0,
         "y": 1
@@ -248,7 +260,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -285,6 +297,145 @@
       "timeShift": null,
       "title": "Detailed audience split",
       "type": "table"
+    },
+    {
+      "autoPanLabels": true,
+      "autoWidthLabels": true,
+      "categories": "a,b",
+      "circleMaxSize": 30,
+      "circleMinSize": 2,
+      "circleOptions": {
+        "strokeEnabled": true,
+        "strokeWeight": "2"
+      },
+      "circleSizeAbsoluteEnabled": false,
+      "circleSizeAbsoluteFactor": 1,
+      "clickthroughOptions": {
+        "windowName": null
+      },
+      "clickthroughUrl": "",
+      "colorMode": "threshold",
+      "colors": [
+        "#37872D",
+        "#56A64B",
+        "#73BF69",
+        "#96D98D",
+        "#C8F2C2"
+      ],
+      "customAttribution": false,
+      "customAttributionText": null,
+      "datasource": null,
+      "decimals": 0,
+      "doubleClickZoom": true,
+      "dragging": true,
+      "enableOverlay": false,
+      "esGeoPoint": "key",
+      "esLink": null,
+      "esLocationName": "",
+      "esMetric": "value",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "formatOmitEmptyValue": false,
+      "gridPos": {
+        "h": 10,
+        "w": 15,
+        "x": 0,
+        "y": 9
+      },
+      "hideEmpty": false,
+      "hideTimepickerNavigation": false,
+      "hideZero": false,
+      "id": 43,
+      "ignoreEmptyGeohashValues": false,
+      "ignoreEscapeKey": false,
+      "ignoreInvalidGeohashValues": false,
+      "initialZoom": 1,
+      "legendContainerSelector": null,
+      "locationData": "countries",
+      "mapCenter": "Europe",
+      "mapCenterLatitude": 0,
+      "mapCenterLongitude": 0,
+      "mapFitData": true,
+      "mapZoomByRadius": null,
+      "maxDataPoints": 1,
+      "maximumZoom": "10",
+      "mouseWheelZoom": false,
+      "overlayOpacity": 0.5,
+      "overlayRangeLatitude": "0,10",
+      "overlayRangeLongitude": "0,20",
+      "overlayUrl": "",
+      "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "showAttribution": true,
+      "showLegend": true,
+      "showZoomControl": true,
+      "stickyLabels": false,
+      "tableQueryOptions": {
+        "geohashField": "key",
+        "labelField": "",
+        "labelLocationKeyField": null,
+        "latitudeField": "latitude",
+        "linkField": null,
+        "longitudeField": "longitude",
+        "metricField": "value",
+        "queryType": "geohash"
+      },
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  $__time(insight_date), key, value\nFROM \"UserLifetimeInsights\"\nWHERE\n  instagram_business_account = $user_id\n  and insight_type = 'country'\n  and insight_date in (\n    select max(insight_date)\n    from \"UserLifetimeInsights\" uli\n    where instagram_business_account = $user_id \n      and insight_type = 'country')\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "key"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "\"UserLifetimeInsights\"",
+          "timeColumn": "insight_date",
+          "timeColumnType": "timestamptz",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": "10,50,500,1000",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Audience location",
+      "type": "grafana-map-panel",
+      "unitPlural": "",
+      "unitSingular": "",
+      "valueName": "current"
     },
     {
       "datasource": null,
@@ -349,9 +500,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 24,
-        "x": 0,
-        "y": 10
+        "w": 9,
+        "x": 15,
+        "y": 9
       },
       "id": 40,
       "options": {
@@ -360,7 +511,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -397,7 +548,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Instagram growth",
+      "title": "Instagram growth on time range",
       "transformations": [
         {
           "id": "reduce",
@@ -414,6 +565,8 @@
     },
     {
       "aliasColors": {
+        "Gain followers": "blue",
+        "Lost followers": "red",
         "gainfollowers": "blue",
         "lostfollowers": "red"
       },
@@ -439,15 +592,52 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "newfollowers"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "New followers"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "gainfollowers"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Gain followers"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "lostfollowers"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Lost followers"
+              }
+            ]
+          }
+        ]
       },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 6,
-        "w": 24,
-        "x": 0,
-        "y": 13
+        "h": 7,
+        "w": 9,
+        "x": 15,
+        "y": 12
       },
       "hiddenSeries": false,
       "id": 41,
@@ -473,7 +663,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": true,
+          "selected": false,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -598,5 +788,5 @@
   "timezone": "",
   "title": "Detailed audience",
   "uid": "020bovaMz",
-  "version": 5
+  "version": 15
 }

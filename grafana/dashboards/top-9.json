@@ -1011,7 +1011,7 @@
         "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
         "error": null,
         "hide": 2,
-        "includeAll": true,
+        "includeAll": false,
         "label": "user_id",
         "multi": false,
         "name": "user_id",
@@ -1153,5 +1153,5 @@
   "timezone": "",
   "title": "Top 9",
   "uid": "QpIPkEJMk",
-  "version": 23
+  "version": 24
 }
