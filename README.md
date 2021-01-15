@@ -15,7 +15,10 @@ A powerful, self-hosted data logger for your **Instagram** account
 Documentation
 -------
 All information is here : https://pihomeserver.github.io/instamate-doc/
-(Under construction)
+
+Examples
+-------
+
 
 License
 -------
