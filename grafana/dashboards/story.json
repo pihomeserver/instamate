@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609852682156,
+  "iteration": 1610700970910,
   "links": [],
   "panels": [
     {
@@ -67,13 +67,6 @@
         "width": 75
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -150,13 +143,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -233,13 +219,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -316,13 +295,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -399,13 +371,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -482,13 +447,6 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "targets": [
         {
           "format": "table",
@@ -567,13 +525,6 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -584,7 +535,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  \"createdAt\" AS \"time\",\n  impressions\nFROM \"StoryInsights\"\nWHERE\n  media_id = '$media_id'\nORDER BY 1",
+          "rawSql": "SELECT\n  \"createdAt\" AS \"time\",\n  impressions,\n  reach\nFROM \"StoryInsights\"\nWHERE\n  media_id = '$media_id'\nORDER BY 1",
           "refId": "A",
           "select": [
             [
@@ -656,132 +607,6 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 3,
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 11
-      },
-      "hiddenSeries": false,
-      "id": 22,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": false,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": false
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "scopedVars": {
-        "user_id": {
-          "selected": false,
-          "text": "ChrisSketching",
-          "value": "17841406965591441"
-        }
-      },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "format": "time_series",
-          "group": [],
-          "metricColumn": "none",
-          "rawQuery": true,
-          "rawSql": "SELECT\n  $__time(\"createdAt\"),\n  reach\nFROM\n  \"StoryInsights\"\nWHERE\n  $__timeFilter(\"createdAt\") and\n  media_id = '$media_id'\norder by \"createdAt\" asc\n",
-          "refId": "A",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "column"
-              }
-            ]
-          ],
-          "timeColumn": "time",
-          "where": [
-            {
-              "name": "$__timeFilter",
-              "params": [],
-              "type": "macro"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Reach",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1233",
-          "decimals": 0,
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1234",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
     }
   ],
   "refresh": false,
@@ -809,7 +634,7 @@
             "value": "17902484194621111"
           }
         ],
-        "query": "17898332314686911",
+        "query": "17873751731156979",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -861,5 +686,5 @@
   "timezone": "",
   "title": "Story",
   "uid": "3EuE5E1Gk",
-  "version": 9
+  "version": 10
 }
