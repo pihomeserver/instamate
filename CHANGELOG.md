@@ -10,6 +10,8 @@
   - Add new model for lifetime insights
   - Add cron task (every 8 hours) to retrieve lifetime insights
   - Add audience_country metric
+- Git
+  - Update of README
 
 ### 0.0.6 (January 06, 2021)
 - Documentation

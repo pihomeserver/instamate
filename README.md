@@ -18,7 +18,19 @@ All information is here : https://pihomeserver.github.io/instamate-doc/
 
 Examples
 -------
+![Detailed profile](https://raw.githubusercontent.com/pihomeserver/instamate/main/public/screenshots/Dashboard%20-%20Detailed%20profile.png)
 
+![Detailed audience](https://raw.githubusercontent.com/pihomeserver/instamate/main/public/screenshots/Dashboard%20-%20Detailed%20audience.png)
+
+![Feed](https://raw.githubusercontent.com/pihomeserver/instamate/main/public/screenshots/Dashboard%20-%20Feed.png)
+
+![Media details](https://raw.githubusercontent.com/pihomeserver/instamate/main/public/screenshots/Dashboard%20-%20Media.png)
+
+![Stories](https://raw.githubusercontent.com/pihomeserver/instamate/main/public/screenshots/Dashboard%20-%20Stories.png)
+
+![Story details](https://raw.githubusercontent.com/pihomeserver/instamate/main/public/screenshots/Dashboard%20-%20Story.png)
+
+![Top 9](https://raw.githubusercontent.com/pihomeserver/instamate/main/public/screenshots/Dashboard%20-%20Top%209.png)
 
 License
 -------
