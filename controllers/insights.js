@@ -210,7 +210,7 @@ function updateUserDetailedInsights(user) {
 }
 
 /**
- * Get insights for all users with a token
+ * Get lifetime insights for all users with a token
  */
 exports.getAllUsersLifetimeInsights = () => {
   return db.User.findAll().then( (users) => {
@@ -224,34 +224,35 @@ exports.getAllUsersLifetimeInsights = () => {
 
 exports.getUserLifetimeInsights = (user) => {
   let actions = []
-  actions.push(getUserCountriesInsights(user))
+  actions.push(getUserAudienceInsights(user))
   return Promise.all(actions)
 };
 
-function getUserCountriesInsights(user) {
+function getUserAudienceInsights(user) {
   return db.Page.findAll({ attributes: ['instagram_business_account'], where:{facebookId: user.id}})
     .then( (igIDs) => {
-      let promisesAllCountriesInsights = []
+      let promisesLifetimeInsights = []
       for (let igID of igIDs) {
-        promisesAllCountriesInsights.push(axios.get(`${process.env.FACEBOOK_API_URL}/${igID.instagram_business_account}/insights?metric=audience_country&period=lifetime&access_token=${user.token}`))
+        promisesLifetimeInsights.push(axios.get(`${process.env.FACEBOOK_API_URL}/${igID.instagram_business_account}/insights?metric=audience_gender_age,audience_country,audience_city,audience_locale&period=lifetime&access_token=${user.token}`))
       }
-      return Promise.all(promisesAllCountriesInsights)
+      return Promise.all(promisesLifetimeInsights)
     })
-    .then( (countriesInsights) => {
+    .then( (lifetimeInsights) => {
       let insightsUpdates = []
-      for (let countriesInsightUser of countriesInsights) {
-        let insights = countriesInsightUser.data
-        const igID = insights.data[0].id.split('/')[0]
-        const insightDate = insights.data[0].values[0].end_time
-        const insightType = 'country'
-        for (let countryCode in insights.data[0].values[0].value) {
-          insightsUpdates.push(db.UserLifetimeInsight.upsert({
-            instagram_business_account: igID,
-            insight_date: insightDate,
-            insight_type: insightType,
-            key: countryCode,
-            value: insights.data[0].values[0].value[countryCode]
-          }))
+      for (let lifetimeInsightsUser of lifetimeInsights) {
+        for (let insightUser of lifetimeInsightsUser.data.data) {
+          const igID = insightUser.id.split('/')[0]
+          const insightDate = insightUser.values[0].end_time
+          const insightType = insightUser.name
+          for (let keyCode in insightUser.values[0].value) {
+            insightsUpdates.push(db.UserLifetimeInsight.upsert({
+              instagram_business_account: igID,
+              insight_date: insightDate,
+              insight_type: insightType,
+              key: keyCode,
+              value: insightUser.values[0].value[keyCode]
+            }))
+          }
         }
       }
       return Promise.all(insightsUpdates)

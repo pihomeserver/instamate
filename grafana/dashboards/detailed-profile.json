@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1610635629631,
+  "iteration": 1610728567402,
   "links": [],
   "panels": [
     {
@@ -1994,7 +1994,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "15m",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
@@ -2039,5 +2039,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 77
+  "version": 79
 }

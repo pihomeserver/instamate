@@ -1,6 +1,12 @@
 # Changelog
 ---------
 
+### 0.0.8 (January 18, 2021)
+- Grafana
+  - Bug fixing of dashboards
+- Node backend
+  - Add audience_country metric
+
 ### 0.0.7 (January 14, 2021)
 - Grafana
   - Bug fixing of dashboards

@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
       primaryKey: true
     },
     insight_type: {
-      type: DataTypes.STRING(7),
+      type: DataTypes.STRING,
       primaryKey: true
     },
     key: {

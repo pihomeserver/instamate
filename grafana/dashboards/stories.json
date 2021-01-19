@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1610700601134,
+  "iteration": 1610961823170,
   "links": [],
   "panels": [
     {
@@ -906,7 +906,7 @@
       "type": "stat"
     }
   ],
-  "refresh": false,
+  "refresh": "15m",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
@@ -951,5 +951,5 @@
   "timezone": "browser",
   "title": "Stories",
   "uid": "hPGbcEJGk",
-  "version": 36
+  "version": 37
 }
