@@ -233,8 +233,9 @@ function getUserOnlineFollowersInsights(user) {
   return db.Page.findAll({ attributes: ['instagram_business_account'], where:{facebookId: user.id}})
     .then( (igIDs) => {
       let promisesOnlineInsights = []
+      const since = Math.trunc((Date.now()-7*24*3600000)/1000)
       for (let igID of igIDs) {
-        promisesOnlineInsights.push(axios.get(`${process.env.FACEBOOK_API_URL}/${igID.instagram_business_account}/insights?metric=online_followers&period=lifetime&access_token=${user.token}`))
+        promisesOnlineInsights.push(axios.get(`${process.env.FACEBOOK_API_URL}/${igID.instagram_business_account}/insights?metric=online_followers&period=lifetime&since=${since}&access_token=${user.token}`))
       }
       return Promise.all(promisesOnlineInsights)
     })
@@ -245,7 +246,6 @@ function getUserOnlineFollowersInsights(user) {
           let igID = insightUser.id.split('/')[0]
           let insightType = insightUser.name
           for (let insightUserPerDate in insightUser.values) {
-            console.log(insightUserPerDate)
             let insightDate = insightUser.values[insightUserPerDate].end_time
             for (let keyCode in insightUser.values[insightUserPerDate].value) {
               insightsUpdates.push(db.UserLifetimeInsight.upsert({
