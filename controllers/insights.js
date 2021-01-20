@@ -225,8 +225,43 @@ exports.getAllUsersLifetimeInsights = () => {
 exports.getUserLifetimeInsights = (user) => {
   let actions = []
   actions.push(getUserAudienceInsights(user))
+  actions.push(getUserOnlineFollowersInsights(user))
   return Promise.all(actions)
 };
+
+function getUserOnlineFollowersInsights(user) {
+  return db.Page.findAll({ attributes: ['instagram_business_account'], where:{facebookId: user.id}})
+    .then( (igIDs) => {
+      let promisesOnlineInsights = []
+      for (let igID of igIDs) {
+        promisesOnlineInsights.push(axios.get(`${process.env.FACEBOOK_API_URL}/${igID.instagram_business_account}/insights?metric=online_followers&period=lifetime&access_token=${user.token}`))
+      }
+      return Promise.all(promisesOnlineInsights)
+    })
+    .then( (onlineFollowersInsights) => {
+      let insightsUpdates = []
+      for (let onlineFollowersInsight of onlineFollowersInsights) {
+        for (let insightUser of onlineFollowersInsight.data.data) {
+          let igID = insightUser.id.split('/')[0]
+          let insightType = insightUser.name
+          for (let insightUserPerDate in insightUser.values) {
+            console.log(insightUserPerDate)
+            let insightDate = insightUser.values[insightUserPerDate].end_time
+            for (let keyCode in insightUser.values[insightUserPerDate].value) {
+              insightsUpdates.push(db.UserLifetimeInsight.upsert({
+                instagram_business_account: igID,
+                insight_date: insightDate,
+                insight_type: insightType,
+                key: keyCode,
+                value: insightUser.values[insightUserPerDate].value[keyCode]
+              }))
+            }
+          }
+        }
+      }
+      return Promise.all(insightsUpdates)
+    })
+}
 
 function getUserAudienceInsights(user) {
   return db.Page.findAll({ attributes: ['instagram_business_account'], where:{facebookId: user.id}})

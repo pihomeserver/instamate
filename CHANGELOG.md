@@ -1,11 +1,18 @@
 # Changelog
 ---------
 
+### 0.0.9 (January 20, 2021)
+- Grafana
+  - Bug fixing of dashboards
+  - Update of dashboards
+- Node backend
+  - Add online_followers metric
+
 ### 0.0.8 (January 18, 2021)
 - Grafana
   - Bug fixing of dashboards
 - Node backend
-  - Add audience_country metric
+  - Add audience_city, audience_gender_age, audience_locale metric
 
 ### 0.0.7 (January 14, 2021)
 - Grafana
