@@ -1,10 +1,11 @@
 # Changelog
 ---------
 
-### 0.0.9 (January 20, 2021)
+### 0.0.9 (January 21, 2021)
 - Grafana
   - Bug fixing of dashboards
   - Update of dashboards
+  - Add new dashboard to follow audience evolution (countries, locales and gender)
 - Node backend
   - Add online_followers metric
 

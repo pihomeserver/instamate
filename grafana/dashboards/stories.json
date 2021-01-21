@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1610961823170,
+  "iteration": 1611227610738,
   "links": [],
   "panels": [
     {
@@ -641,13 +641,15 @@
       "id": 10,
       "interval": "1m",
       "legend": {
-        "avg": false,
+        "alignAsTable": true,
+        "avg": true,
         "current": false,
-        "max": false,
-        "min": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -951,5 +953,5 @@
   "timezone": "browser",
   "title": "Stories",
   "uid": "hPGbcEJGk",
-  "version": 37
+  "version": 38
 }

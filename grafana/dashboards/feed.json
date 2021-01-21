@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611132748900,
+  "iteration": 1611227394137,
   "links": [],
   "panels": [
     {
@@ -937,7 +937,7 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 12,
+        "w": 10,
         "x": 0,
         "y": 10
       },
@@ -964,6 +964,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1128,21 +1135,23 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
-        "w": 12,
-        "x": 12,
+        "w": 14,
+        "x": 10,
         "y": 10
       },
       "hiddenSeries": false,
       "id": 9,
       "interval": "1m",
       "legend": {
-        "avg": false,
+        "alignAsTable": true,
+        "avg": true,
         "current": false,
-        "max": false,
-        "min": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -1298,5 +1307,5 @@
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 101
+  "version": 102
 }

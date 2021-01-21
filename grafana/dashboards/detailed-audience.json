@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611049691701,
+  "iteration": 1611225511019,
   "links": [],
   "panels": [
     {
@@ -781,6 +781,13 @@
         "y": 19
       },
       "id": 45,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Evolution",
+          "url": "/d/S0h-gLfMz/audience-evolution"
+        }
+      ],
       "options": {
         "displayMode": "gradient",
         "orientation": "horizontal",
@@ -940,6 +947,13 @@
         "y": 19
       },
       "id": 46,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Evolution",
+          "url": "/d/S0h-gLfMz/audience-evolution"
+        }
+      ],
       "options": {
         "displayMode": "gradient",
         "orientation": "horizontal",
@@ -1139,10 +1153,23 @@
         "values": true
       },
       "legendType": "Under graph",
-      "links": [],
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Evolution",
+          "url": "/d/S0h-gLfMz/audience-evolution"
+        }
+      ],
       "nullPointMode": "connected",
       "pieType": "pie",
       "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "strokeWidth": 1,
       "targets": [
         {
@@ -1248,6 +1275,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1396,6 +1430,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1472,6 +1513,158 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "aliasColors": {
+        "0 - 1": "green",
+        "1 - 2": "green",
+        "10 - 11": "green",
+        "11 - 12": "green",
+        "12 - 13": "green",
+        "13 - 14": "green",
+        "14 - 15": "green",
+        "15 - 16": "green",
+        "16 - 17": "green",
+        "17 - 18": "green",
+        "18 - 19": "green",
+        "19 - 20": "green",
+        "2 - 3": "green",
+        "20 - 21": "green",
+        "21 - 22": "green",
+        "22 - 23": "green",
+        "23 - 24": "green",
+        "3 - 4": "green",
+        "4 - 5": "green",
+        "5 - 6": "green",
+        "6 - 7": "green",
+        "7 - 8": "green",
+        "8 - 9": "green",
+        "9 - 10": "green"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 37
+      },
+      "hiddenSeries": false,
+      "id": 56,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": false,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  now() as time,\n  concat(key, ' - ', key::int+1),\n  value\nFROM\n  \"UserLifetimeInsights\"\nWHERE\n  instagram_business_account = $user_id\n  and insight_type = 'online_followers'\n  and insight_date = (\n      select insight_date\n      from \"UserLifetimeInsights\"\n      where instagram_business_account = $user_id\n        and insight_type = 'online_followers'\n        and extract(epoch from insight_date)*1000 < $__to\n      order by insight_date desc\n      limit 1)\norder by key::int\n",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Followers online",
+      "tooltip": {
+        "shared": false,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "series",
+        "name": null,
+        "show": true,
+        "values": [
+          "total"
+        ]
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:233",
+          "decimals": 0,
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:234",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "",
@@ -1519,5 +1712,5 @@
   "timezone": "",
   "title": "Detailed audience",
   "uid": "020bovaMz",
-  "version": 45
+  "version": 49
 }
