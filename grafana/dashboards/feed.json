@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611227394137,
+  "iteration": 1611415799509,
   "links": [],
   "panels": [
     {
@@ -417,6 +417,13 @@
       },
       "id": 8,
       "interval": "1m",
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Media comparison",
+          "url": "/d/2zdj2_BMz/media-comparison"
+        }
+      ],
       "options": {
         "showHeader": true,
         "sortBy": [
@@ -1307,5 +1314,5 @@
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 102
+  "version": 104
 }

@@ -12,12 +12,11 @@
       }
     ]
   },
-  "description": "",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611558233106,
+  "iteration": 1611415608869,
   "links": [],
   "panels": [
     {
@@ -29,12 +28,12 @@
         "x": 0,
         "y": 0
       },
-      "id": 4,
+      "id": 43,
       "panels": [],
       "repeat": "user_id",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -51,30 +50,71 @@
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "likesmedia1"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Media 1"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "likesmedia2"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Media 2"
+              }
+            ]
+          }
+        ]
       },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 11,
-        "w": 12,
+        "h": 14,
+        "w": 20,
         "x": 0,
         "y": 1
       },
       "hiddenSeries": false,
-      "id": 6,
+      "hideTimeOverride": false,
+      "id": 45,
       "legend": {
         "alignAsTable": true,
-        "avg": false,
-        "current": true,
+        "avg": true,
+        "current": false,
         "max": true,
         "min": true,
-        "rightSide": true,
+        "rightSide": false,
         "show": true,
-        "sort": "current",
-        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -91,7 +131,7 @@
       "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -104,10 +144,38 @@
         {
           "format": "time_series",
           "group": [],
+          "hide": false,
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  insight_date as time,\n  key,\n  value\nFROM\n  \"UserLifetimeInsights\"\nWHERE\n  insight_type = 'audience_country'\n  and instagram_business_account = $user_id\n  and key in (\n    SELECT\n      key\n    FROM\n      \"UserLifetimeInsights\"\n    WHERE\n      insight_type = 'audience_country'\n      and instagram_business_account = $user_id\n      and insight_date = (\n        select max(insight_date)\n        from \"UserLifetimeInsights\" \n        where insight_type = 'audience_country' \n          and instagram_business_account = $user_id)\n      order by value desc\n      limit 10)\norder by insight_date asc, value desc\n",
+          "rawSql": "SELECT\n  extract(epoch from \"createdAt\"::timestamp) - (select min(extract(epoch from \"createdAt\"::timestamp)) from \"MediaInsights\" WHERE media_id = '$media_1') as time,\n  like_count as likesMedia1\nfrom \"MediaInsights\"\nWHERE media_id = '$media_1'",
           "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "timeColumn": "time",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  extract(epoch from \"createdAt\"::timestamp) - (select min(extract(epoch from \"createdAt\"::timestamp)) from \"MediaInsights\" WHERE media_id = '$media_2') as time,\n  like_count as likesMedia2\nfrom \"MediaInsights\"\nWHERE media_id = '$media_2'",
+          "refId": "B",
           "select": [
             [
               {
@@ -132,7 +200,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Top 10 countries evolution",
+      "title": "Media likes comparison",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -148,20 +216,23 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:259",
+          "decimals": 0,
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
+          "$$hashKey": "object:260",
           "format": "short",
           "label": null,
           "logBase": 1,
           "max": null,
           "min": null,
-          "show": true
+          "show": false
         }
       ],
       "yaxis": {
@@ -170,70 +241,47 @@
       }
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": null,
-      "decimals": 0,
       "fieldConfig": {
         "defaults": {
           "custom": {}
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
-        "h": 11,
-        "w": 12,
-        "x": 12,
+        "h": 7,
+        "w": 4,
+        "x": 20,
         "y": 1
       },
-      "hiddenSeries": false,
-      "id": 7,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
+      "id": 48,
       "options": {
-        "alertThreshold": true
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": false,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
       },
-      "percentage": false,
       "pluginVersion": "7.3.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
       },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "format": "time_series",
+          "format": "table",
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  insight_date as time,\n  substring(key, 1, 2) as locale, \n  sum(value) as sumLocale\nFROM\n  \"UserLifetimeInsights\"\nWHERE\n  insight_type = 'audience_locale'\n  and instagram_business_account = $user_id\n  and substring(key, 1, 2) in (\n    SELECT\n      substring(key, 1, 2)\n    FROM\n      \"UserLifetimeInsights\"\n    WHERE\n      insight_type = 'audience_locale'\n      and instagram_business_account = $user_id\n      and insight_date = (\n        select max(insight_date)\n        from \"UserLifetimeInsights\" \n        where insight_type = 'audience_country' \n          and instagram_business_account = $user_id)\n      order by value desc\n      limit 10)\ngroup by insight_date, locale\norder by insight_date asc, sumLocale desc\n",
+          "rawSql": "SELECT\n  media_url\nFROM\n  \"Media\"\nWHERE \n  media_id = '$media_1'",
           "refId": "A",
           "select": [
             [
@@ -255,109 +303,54 @@
           ]
         }
       ],
-      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
-      "title": "Top 10 locale evolution",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "title": "First media",
+      "type": "dalvany-image-panel"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": null,
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "custom": {}
         },
         "overrides": []
       },
-      "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
-        "h": 11,
-        "w": 12,
-        "x": 0,
-        "y": 12
+        "h": 7,
+        "w": 4,
+        "x": 20,
+        "y": 8
       },
-      "hiddenSeries": false,
-      "id": 9,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
+      "id": 49,
       "options": {
-        "alertThreshold": true
+        "alt_field": "",
+        "height": 75,
+        "icon_field": "",
+        "singleFill": true,
+        "tooltip": false,
+        "tooltip_date_elapsed": false,
+        "tooltip_field": "",
+        "tooltip_include_date": false,
+        "tooltip_include_field": true,
+        "width": 75
       },
-      "percentage": false,
       "pluginVersion": "7.3.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
       },
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
-          "format": "time_series",
+          "format": "table",
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  insight_date as time,\n  substring(key, 1, 1) as metric,\n  sum(value) as sumLocale\nFROM\n  \"UserLifetimeInsights\"\nWHERE\n  insight_type = 'audience_gender_age'\n  and instagram_business_account = $user_id\ngroup by insight_date, metric\norder by insight_date asc, sumLocale desc",
+          "rawSql": "SELECT\n  media_url\nFROM\n  \"Media\"\nWHERE \n  media_id = '$media_2'",
           "refId": "A",
           "select": [
             [
@@ -379,55 +372,17 @@
           ]
         }
       ],
-      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [],
       "timeShift": null,
-      "title": "Audience gender",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:95",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:96",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "title": "Second media",
+      "type": "dalvany-image-panel"
     }
   ],
-  "refresh": "15m",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
-    "InstaMate"
+    "instamate"
   ],
   "templating": {
     "list": [
@@ -435,14 +390,14 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "All",
-          "value": "$__all"
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
         },
         "datasource": "Instamate",
         "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
         "error": null,
         "hide": 2,
-        "includeAll": true,
+        "includeAll": false,
         "label": "user_id",
         "multi": false,
         "name": "user_id",
@@ -457,16 +412,70 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "2021-01-19T07:05:50+0000",
+          "value": "17888266264925052"
+        },
+        "datasource": "Instamate",
+        "definition": "SELECT media_id AS __value, timestamp AS __text FROM public.\"Media\" order by timestamp desc;",
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "First media",
+        "multi": false,
+        "name": "media_1",
+        "options": [],
+        "query": "SELECT media_id AS __value, timestamp AS __text FROM public.\"Media\" order by timestamp desc;",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "2021-01-14T07:42:31+0000",
+          "value": "17907462454628119"
+        },
+        "datasource": "Instamate",
+        "definition": "SELECT media_id AS __value, timestamp AS __text FROM public.\"Media\" order by timestamp desc;",
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Second media",
+        "multi": false,
+        "name": "media_2",
+        "options": [],
+        "query": "SELECT media_id AS __value, timestamp AS __text FROM public.\"Media\" order by timestamp desc;",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
   "time": {
-    "from": "now-1M",
+    "from": "now-1y",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Audience evolution",
-  "uid": "S0h-gLfMz",
-  "version": 12
+  "title": "Media comparison",
+  "uid": "2zdj2_BMz",
+  "version": 15
 }

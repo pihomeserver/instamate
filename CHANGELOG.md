@@ -1,6 +1,11 @@
 # Changelog
 ---------
 
+### 0.0.10 (January 23, 2021)
+- Grafana
+  - Bug fixing of dashboards
+  - Add a new dashboard to compare 2 media evolution
+
 ### 0.0.9 (January 21, 2021)
 - Grafana
   - Bug fixing of dashboards

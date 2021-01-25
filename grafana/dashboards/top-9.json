@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1609852704353,
+  "iteration": 1611408972991,
   "links": [],
   "panels": [
     {
@@ -33,7 +33,7 @@
       "repeat": "user_id",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -86,7 +86,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -169,7 +169,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -252,7 +252,7 @@
       "pluginVersion": "7.3.3",
       "scopedVars": {
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -306,6 +306,13 @@
         "y": 4
       },
       "id": 33,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Instagram",
+          "url": "https://www.instagram.com/p/${__cell_2}"
+        }
+      ],
       "maxPerRow": 3,
       "options": {
         "alt_field": "",
@@ -329,7 +336,7 @@
           "value": "1"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -340,7 +347,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip\nFROM (\n  SELECT\n    id,\n    media_url,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
+          "rawSql": "SELECT\n  media_url,\n  \"${top_type:raw}\" as tooptip,\n  shortcode\nFROM (\n  SELECT\n    id,\n    media_url,\n    shortcode,\n    \"${top_type:raw}\"\n  FROM\n    \"Media\"\n  WHERE\n    $__timeFilter(\"timestamp\")\n  ORDER BY \"${top_type:raw}\" desc,id desc\n  LIMIT ${rangeTop}\n) AS _\nORDER BY \"${top_type:raw}\" asc, id asc\nLIMIT 1\n",
           "refId": "A",
           "select": [
             [
@@ -398,7 +405,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -407,7 +414,7 @@
           "value": "2"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -476,7 +483,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -485,7 +492,7 @@
           "value": "3"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -554,7 +561,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -563,7 +570,7 @@
           "value": "4"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -632,7 +639,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -641,7 +648,7 @@
           "value": "5"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -710,7 +717,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -719,7 +726,7 @@
           "value": "6"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -788,7 +795,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -797,7 +804,7 @@
           "value": "7"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -866,7 +873,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -875,7 +882,7 @@
           "value": "8"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -944,7 +951,7 @@
       },
       "pluginVersion": "7.3.3",
       "repeatDirection": "h",
-      "repeatIteration": 1609852704353,
+      "repeatIteration": 1611408972991,
       "repeatPanelId": 33,
       "scopedVars": {
         "rangeTop": {
@@ -953,7 +960,7 @@
           "value": "9"
         },
         "user_id": {
-          "selected": false,
+          "selected": true,
           "text": "ChrisSketching",
           "value": "17841406965591441"
         }
@@ -1153,5 +1160,5 @@
   "timezone": "",
   "title": "Top 9",
   "uid": "QpIPkEJMk",
-  "version": 24
+  "version": 25
 }
