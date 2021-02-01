@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611559983298,
+  "iteration": 1611562215623,
   "links": [],
   "panels": [
     {
@@ -148,7 +148,18 @@
       },
       "id": 24,
       "options": {
-        "showHeader": false
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^timestamp$/",
+          "values": true
+        },
+        "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
       "targets": [
@@ -184,7 +195,7 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Published on",
-      "type": "table"
+      "type": "stat"
     },
     {
       "datasource": null,
@@ -675,7 +686,18 @@
       },
       "id": 25,
       "options": {
-        "showHeader": false
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "/^duration$/",
+          "values": true
+        },
+        "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
       "targets": [
@@ -684,7 +706,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  justify_interval(now()::timestamp(0) - timestamp::timestamp(0))\nFROM \"Media\"\nWHERE \n  media_id = '$media_id'",
+          "rawSql": "SELECT\n  justify_interval(now()::timestamp(0) - timestamp::timestamp(0)) as duration\nFROM \"Media\"\nWHERE \n  media_id = '$media_id'",
           "refId": "A",
           "select": [
             [
@@ -711,7 +733,7 @@
       "timeFrom": null,
       "timeShift": null,
       "title": "Published for",
-      "type": "table"
+      "type": "stat"
     },
     {
       "datasource": null,
@@ -1377,7 +1399,7 @@
             "value": "17902484194621111"
           }
         ],
-        "query": "17900867092706943",
+        "query": "17888266264925052",
         "skipUrlSync": false,
         "type": "textbox"
       },
@@ -1418,5 +1440,5 @@
   "timezone": "",
   "title": "Media",
   "uid": "LQaqKWJMz",
-  "version": 66
+  "version": 67
 }

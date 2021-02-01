@@ -1,6 +1,10 @@
 # Changelog
 ---------
 
+### 0.0.11 (February 1, 2021)
+- Grafana
+  - Bug fixing of dashboards
+
 ### 0.0.10 (January 23, 2021)
 - Grafana
   - Bug fixing of dashboards
