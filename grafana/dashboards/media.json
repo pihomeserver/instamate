@@ -15,9 +15,9 @@
   "description": "",
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": null,
-  "iteration": 1611562215623,
+  "iteration": 1612362556604,
   "links": [],
   "panels": [
     {
@@ -1440,5 +1440,5 @@
   "timezone": "",
   "title": "Media",
   "uid": "LQaqKWJMz",
-  "version": 67
+  "version": 68
 }

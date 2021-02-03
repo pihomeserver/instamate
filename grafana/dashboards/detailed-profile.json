@@ -15,9 +15,9 @@
   "description": "",
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": null,
-  "iteration": 1611227337930,
+  "iteration": 1612362348984,
   "links": [],
   "panels": [
     {
@@ -276,6 +276,13 @@
         "textMode": "value"
       },
       "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": false,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "targets": [
         {
           "format": "table",
@@ -2151,5 +2158,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 84
+  "version": 85
 }

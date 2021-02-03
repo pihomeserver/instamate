@@ -15,9 +15,9 @@
   "description": "",
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
+  "graphTooltip": 1,
   "id": null,
-  "iteration": 1612085394815,
+  "iteration": 1612362531913,
   "links": [],
   "panels": [
     {
@@ -84,6 +84,13 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.3.3",
+      "scopedVars": {
+        "user_id": {
+          "selected": true,
+          "text": "ChrisSketching",
+          "value": "17841406965591441"
+        }
+      },
       "targets": [
         {
           "format": "table",
@@ -1391,5 +1398,5 @@
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 105
+  "version": 107
 }
