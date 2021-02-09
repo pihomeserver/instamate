@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1611415608869,
+  "iteration": 1612858872065,
   "links": [],
   "panels": [
     {
@@ -109,10 +109,10 @@
       "id": 45,
       "legend": {
         "alignAsTable": true,
-        "avg": true,
+        "avg": false,
         "current": false,
         "max": true,
-        "min": true,
+        "min": false,
         "rightSide": false,
         "show": true,
         "total": false,
@@ -147,7 +147,7 @@
           "hide": false,
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  extract(epoch from \"createdAt\"::timestamp) - (select min(extract(epoch from \"createdAt\"::timestamp)) from \"MediaInsights\" WHERE media_id = '$media_1') as time,\n  like_count as likesMedia1\nfrom \"MediaInsights\"\nWHERE media_id = '$media_1'",
+          "rawSql": "SELECT\n  extract(epoch from \"createdAt\"::timestamp) - (select min(extract(epoch from \"createdAt\"::timestamp)) from \"MediaInsights\" WHERE media_id = '$media_1') as time,\n  like_count as likesMedia1\nfrom \"MediaInsights\"\nWHERE media_id = '$media_1'\norder by time asc",
           "refId": "A",
           "select": [
             [
@@ -174,7 +174,7 @@
           "hide": false,
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  extract(epoch from \"createdAt\"::timestamp) - (select min(extract(epoch from \"createdAt\"::timestamp)) from \"MediaInsights\" WHERE media_id = '$media_2') as time,\n  like_count as likesMedia2\nfrom \"MediaInsights\"\nWHERE media_id = '$media_2'",
+          "rawSql": "SELECT\n  extract(epoch from \"createdAt\"::timestamp) - (select min(extract(epoch from \"createdAt\"::timestamp)) from \"MediaInsights\" WHERE media_id = '$media_2') as time,\n  like_count as likesMedia2\nfrom \"MediaInsights\"\nWHERE media_id = '$media_2'\norder by time asc",
           "refId": "B",
           "select": [
             [
@@ -470,12 +470,12 @@
     ]
   },
   "time": {
-    "from": "now-1y",
-    "to": "now"
+    "from": "1970-01-01T00:00:00.000Z",
+    "to": "1970-01-01T00:15:58.800Z"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Media comparison",
   "uid": "2zdj2_BMz",
-  "version": 15
+  "version": 17
 }
