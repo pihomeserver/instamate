@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1612362348984,
+  "iteration": 1613126043806,
   "links": [],
   "panels": [
     {
@@ -763,7 +763,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  sum(like_count)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id",
+          "rawSql": "SELECT\n  sum(like_count)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id\n  and $__timeFilter(timestamp)",
           "refId": "A",
           "select": [
             [
@@ -789,7 +789,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Lifetime likes",
+      "title": "Likes",
       "type": "stat"
     },
     {
@@ -977,7 +977,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  sum(comments_count)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id",
+          "rawSql": "SELECT\n  sum(comments_count)\nFROM \"Media\"\nWHERE\n  instagram_business_account = $user_id\n  and $__timeFilter(timestamp)",
           "refId": "A",
           "select": [
             [
@@ -1003,7 +1003,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Lifetime comments",
+      "title": "Comments",
       "type": "stat"
     },
     {
@@ -1060,7 +1060,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "select sum(reqSaved.totalSaved) \nfrom (select distinct(mi.media_id), max(mi.saved) as totalSaved\nfrom \"MediaInsights\" mi, \"Media\" m\nwhere saved is not null and mi.media_id = m.media_id and m.instagram_business_account = $user_id\ngroup by mi.media_id) as reqSaved",
+          "rawSql": "select sum(reqSaved.totalSaved) \nfrom (select distinct(mi.media_id), max(mi.saved) as totalSaved\nfrom \"MediaInsights\" mi, \"Media\" m\nwhere saved is not null and mi.media_id = m.media_id and m.instagram_business_account = $user_id and $__timeFilter(timestamp)\ngroup by mi.media_id) as reqSaved",
           "refId": "A",
           "select": [
             [
@@ -1086,7 +1086,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Lifetime saved",
+      "title": "Saves",
       "type": "stat"
     },
     {
@@ -2158,5 +2158,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 85
+  "version": 86
 }
