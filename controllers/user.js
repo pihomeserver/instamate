@@ -1,7 +1,9 @@
-const db = require('../config/database');
 const dotenv = require('dotenv');
 dotenv.config({ path: '.env' });
-const insightsController = require('./insights');
+const insightsUsers = require('./insights.users');
+const insightsStories = require('./insights.stories');
+const insightsMedia = require('./insights.media');
+const insightsReels = require('./insights.reels');
 
 /**
  * GET /login
@@ -30,7 +32,7 @@ exports.logout = (req, res) => {
 };
 
 exports.getUserInsights = (req, res) => {
-  insightsController.getAllUsersInsights().then( () => {
+  insightsUsers.getAllUsersInsights().then( () => {
     res.redirect('/');
   })
   .catch((error) => {
@@ -40,7 +42,7 @@ exports.getUserInsights = (req, res) => {
 }
 
 exports.getUserLifetimeInsights = (req, res) => {
-  insightsController.getAllUsersLifetimeInsights().then( () => {
+  insightsUsers.getAllUsersLifetimeInsights().then( () => {
     res.redirect('/');
   })
   .catch((error) => {
@@ -50,7 +52,7 @@ exports.getUserLifetimeInsights = (req, res) => {
 }
 
 exports.getUserMedias = (req, res) => {
-  insightsController.getAllUsersMedia()
+  insightsMedia.getAllUsersMedia()
   .then( () => {
     res.redirect('/');
   })
@@ -61,13 +63,23 @@ exports.getUserMedias = (req, res) => {
 }
 
 exports.getStories = (req, res) => {
-  insightsController.getAllUsersStories()
+  insightsStories.getAllUsersStories()
   .then( () => {
     res.redirect('/');
   })
   .catch((error) => {
     req.flash('errors', error);
-    // return res.redirect('/error', error);
+    return res.redirect('/');
+  });
+}
+
+exports.getReels = (req, res) => {
+  insightsReels.getAllUsersReels()
+  .then( () => {
+    res.redirect('/');
+  })
+  .catch((error) => {
+    req.flash('errors', error);
     return res.redirect('/');
   });
 }

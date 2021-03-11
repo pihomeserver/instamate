@@ -10,12 +10,13 @@
       ul.nav.navbar-nav.ml-auto
           li.dropdown(class=(title === 'Account Management') ? 'active' : undefined).nav-item
             a.dropdown-toggle.nav-link(href='#', data-toggle='dropdown')
-              span Menu
+              span Actions
               i.caret
             div.dropdown-menu
               a.dropdown-item(href='/Login') Login
-              a.dropdown-item(href='/analyse') Analyse
-              a.dropdown-item(href='/lifetime') Lifetime
-              a.dropdown-item(href='/media') Get medias
-              a.dropdown-item(href='/stories') Stories
+              a.dropdown-item(href='/users') Users analysis
+              a.dropdown-item(href='/lifetime') Lifetime insights
+              a.dropdown-item(href='/media') Get medias and media insights
+              a.dropdown-item(href='/stories') Stories insights
+              a.dropdown-item(href='/reels') Reels information and insights
               a.dropdown-item(href='/logout') Logout

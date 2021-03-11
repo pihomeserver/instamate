@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1612362441153,
+  "iteration": 1615220475768,
   "links": [],
   "panels": [
     {
@@ -85,7 +85,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -212,7 +212,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -336,7 +336,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -424,7 +424,7 @@
     }
   ],
   "refresh": "15m",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "InstaMate"
@@ -440,6 +440,7 @@
         },
         "datasource": "Instamate",
         "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "description": null,
         "error": null,
         "hide": 2,
         "includeAll": true,
@@ -461,12 +462,12 @@
     ]
   },
   "time": {
-    "from": "now-1M",
+    "from": "now-6M",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Audience evolution",
   "uid": "S0h-gLfMz",
-  "version": 14
+  "version": 15
 }

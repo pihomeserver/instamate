@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1613131639478,
+  "iteration": 1615469215575,
   "links": [],
   "panels": [
     {
@@ -47,6 +47,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "decimals": 0,
           "mappings": [],
@@ -81,9 +84,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": true,
@@ -137,35 +141,13 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
+            "steps": []
           }
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "media_type"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Media type"
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "fontSize": "80%",
       "format": "short",
@@ -234,179 +216,14 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": null,
-            "displayMode": "auto",
-            "filterable": false
-          },
-          "links": [],
-          "mappings": [],
+          "color": {},
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "media_id"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "string"
-              },
-              {
-                "id": "links",
-                "value": [
-                  {
-                    "targetBlank": true,
-                    "title": "Media details",
-                    "url": "/d/LQaqKWJMz/media?var-media_id=${__data.fields.media_id}"
-                  }
-                ]
-              },
-              {
-                "id": "displayName",
-                "value": "Image details"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "media_url"
-            },
-            "properties": [
-              {
-                "id": "custom.displayMode",
-                "value": "image"
-              },
-              {
-                "id": "displayName",
-                "value": "Image"
-              },
-              {
-                "id": "links",
-                "value": [
-                  {
-                    "targetBlank": true,
-                    "title": "Media details",
-                    "url": "/d/LQaqKWJMz/media?var-media_id=${__data.fields.media_id}&from=${__data.fields.tsp}&tp=now"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "like_count"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Likes"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "comments_count"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Comments"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "time"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "Published date"
-              },
-              {
-                "id": "unit",
-                "value": "dateTimeAsIso"
-              },
-              {
-                "id": "links",
-                "value": [
-                  {
-                    "targetBlank": true,
-                    "title": "",
-                    "url": "/d/LQaqKWJMz/media?var-media_id=${__data.fields.media_id}&from=${__data.fields.tsp}&tp=now"
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "er_post"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "ER Post"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "er_factored"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "ER Factored"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "er_reach"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "ER Reach"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "er_impressions"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "ER Impressions"
-              }
-            ]
+            "steps": []
           }
-        ]
+        },
+        "overrides": []
       },
       "fontSize": "100%",
       "gridPos": {
@@ -660,7 +477,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "with currentFollowers as (\n  SELECT followers_count\n  FROM \"UserInsights\"\n  WHERE instagram_business_account = $user_id\n  ORDER BY insight_date desc\n  LIMIT 1\n), maxMediaInsight as (select\n\tmedia_id, max(\"createdAt\") as last_insight\nfrom \"MediaInsights\" mi\ngroup by mi.media_id)\n\nselect\n\tm.media_id,\n\t1000 * extract(epoch from timestamp::timestamp) as tsp,\n  $__time(timestamp),\n  concat('<img width=\"70px\" height\"70px\" src=\"',case when media_type = 'VIDEO' then thumbnail_url\n    else media_url\n  end, '\"/>') as media_image,\n  mi.like_count,\n  mi.comments_count, \n  mi.saved,\n\t(cast (mi.engagement as float) / currentFollowers.followers_count)*100 as er_post,\n\t((cast (mi.comments_count as float) + mi.comments_count + mi.like_count + mi.saved)/ currentFollowers.followers_count)*100 as er_factored,\n\t(cast (mi.reach as float) / currentFollowers.followers_count)*100 as er_reach,\n\t(cast (mi.impressions as float) / currentFollowers.followers_count)*100 as er_impressions\nfrom\n\t\"Media\" m, \n\t\"MediaInsights\" mi,\n\tmaxMediaInsight, \n\tcurrentFollowers\nwhere\n\tm.media_id = maxMediaInsight.media_id\n\tand m.instagram_business_account = $user_id\n\tand m.media_id = mi.media_id \n\tand mi.\"createdAt\" = maxMediaInsight.last_insight\n\tand extract(epoch from m.\"timestamp\"::date)*1000 >= $__from\norder by m.\"timestamp\" desc \n--limit 20",
+          "rawSql": "with currentFollowers as (\n  SELECT followers_count\n  FROM \"UserInsights\"\n  WHERE instagram_business_account = $user_id\n  ORDER BY insight_date desc\n  LIMIT 1\n), maxMediaInsight as (select\n\tmedia_id, max(\"createdAt\") as last_insight\nfrom \"MediaInsights\" mi\ngroup by mi.media_id)\n\nselect\n\tm.media_id,\n\t1000 * extract(epoch from timestamp::timestamp) as tsp,\n  $__time(timestamp),\n  concat('<img width=\"70px\" height\"70px\" src=\"',case when media_type = 'VIDEO' then thumbnail_url when media_type = 'REELS' then thumbnail_url\n    else media_url\n  end, '\"/>') as media_image,\n  mi.like_count,\n  mi.comments_count, \n  mi.saved,\n\t(cast (mi.engagement as float) / currentFollowers.followers_count)*100 as er_post,\n\t((cast (mi.comments_count as float) + mi.comments_count + mi.like_count + mi.saved)/ currentFollowers.followers_count)*100 as er_factored,\n\t(cast (mi.reach as float) / currentFollowers.followers_count)*100 as er_reach,\n\t(cast (mi.impressions as float) / currentFollowers.followers_count)*100 as er_impressions\nfrom\n\t\"Media\" m, \n\t\"MediaInsights\" mi,\n\tmaxMediaInsight, \n\tcurrentFollowers\nwhere\n\tm.media_id = maxMediaInsight.media_id\n\tand m.instagram_business_account = $user_id\n\tand m.media_id = mi.media_id \n\tand mi.\"createdAt\" = maxMediaInsight.last_insight\n\tand extract(epoch from m.\"timestamp\"::date)*1000 >= $__from\norder by m.\"timestamp\" desc ",
           "refId": "A",
           "select": [
             [
@@ -696,6 +513,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "decimals": 0,
           "mappings": [],
@@ -730,9 +550,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": true,
@@ -780,6 +601,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "decimals": 0,
           "mappings": [],
@@ -814,9 +638,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": true,
@@ -864,6 +689,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "decimals": 0,
           "mappings": [],
@@ -898,9 +726,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": true,
@@ -952,24 +781,12 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": null,
-            "displayMode": "auto",
-            "filterable": false
-          },
+          "color": {},
+          "custom": {},
           "links": [],
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
+            "steps": []
           },
           "unit": "none"
         },
@@ -1051,7 +868,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1150,24 +967,12 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": null,
-            "displayMode": "auto",
-            "filterable": false
-          },
+          "color": {},
+          "custom": {},
           "links": [],
-          "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "blue",
-                "value": null
-              }
-            ]
+            "steps": []
           },
           "unit": "none"
         },
@@ -1251,7 +1056,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1343,7 +1148,7 @@
     }
   ],
   "refresh": "30m",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "InstaMate"
@@ -1359,6 +1164,7 @@
         },
         "datasource": "Instamate",
         "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "description": null,
         "error": null,
         "hide": 2,
         "includeAll": true,
@@ -1391,12 +1197,12 @@
     ]
   },
   "time": {
-    "from": "now-1M",
+    "from": "now-2M",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Feed",
   "uid": "4LbcF60Mk",
-  "version": 108
+  "version": 111
 }

@@ -1,6 +1,15 @@
 # Changelog
 ---------
 
+### 0.0.14 (March 9, 2021)
+- Grafana
+  - Update time range for few dashboard
+  - Correct some timerange issues
+  - Add support for Reels insights
+- Node backend
+  - Split of insight file (now based on the insight type)
+  - Reels insights support
+
 ### 0.0.13 (February 12, 2021)
 - Grafana
   - Bug fixing of dashboards

@@ -29,9 +29,6 @@ module.exports = (sequelize) => {
     media_url: {
       type: DataTypes.STRING(2048)
     },
-    owner: {
-      type: DataTypes.STRING
-    },
     permalink: {
       type: DataTypes.STRING
     },

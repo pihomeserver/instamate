@@ -27,6 +27,7 @@ dotenv.config({ path: '.env' });
  */
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
+const insightsCronController = require('./controllers/insights.cron');
 
 /**
  * Passport configuration.
@@ -82,10 +83,11 @@ app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawes
 app.get('/', homeController.index);
 app.get('/login', userController.getLogin);
 app.get('/logout', userController.logout);
-app.get('/analyse', userController.getUserInsights);
+app.get('/users', userController.getUserInsights);
 app.get('/lifetime', userController.getUserLifetimeInsights);
 app.get('/media', userController.getUserMedias);
 app.get('/stories', userController.getStories);
+app.get('/reels', userController.getReels);
 app.get('/error', homeController.error);
 
 /**

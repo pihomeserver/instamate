@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1612362376826,
+  "iteration": 1615275110851,
   "links": [],
   "panels": [
     {
@@ -47,6 +47,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {
             "align": null,
             "filterable": false
@@ -257,7 +260,7 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": false,
@@ -442,6 +445,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {
             "align": null,
             "filterable": false
@@ -508,7 +514,7 @@
       "options": {
         "showHeader": true
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": false,
@@ -577,19 +583,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": [
@@ -657,7 +654,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -747,14 +744,9 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-green",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {
-            "align": "center",
-            "displayMode": "auto",
-            "filterable": false
-          },
+          "custom": {},
           "displayName": "$__cell_0",
           "mappings": [],
           "min": 0,
@@ -798,9 +790,10 @@
           "fields": "",
           "values": true
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": false,
@@ -845,6 +838,9 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {
             "align": null,
             "filterable": false
@@ -876,7 +872,7 @@
       "options": {
         "showHeader": false
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": false,
@@ -921,10 +917,10 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
+          "color": {
+            "mode": "thresholds"
           },
+          "custom": {},
           "displayName": "$__cell_0",
           "mappings": [],
           "min": 0,
@@ -964,9 +960,10 @@
           "fields": "",
           "values": true
         },
-        "showUnfilled": true
+        "showUnfilled": true,
+        "text": {}
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "scopedVars": {
         "user_id": {
           "selected": false,
@@ -1018,23 +1015,10 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -1116,23 +1100,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -1220,25 +1191,11 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "fixedColor": "light-green",
-            "mode": "fixed"
-          },
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "min": 0,
+          "color": {},
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -1271,7 +1228,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1375,25 +1332,11 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "fixedColor": "light-green",
-            "mode": "fixed"
-          },
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "decimals": 0,
-          "mappings": [],
-          "min": 0,
+          "color": {},
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -1426,7 +1369,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1577,7 +1520,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1668,7 +1611,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "InstaMate"
@@ -1684,6 +1627,7 @@
         },
         "datasource": "Instamate",
         "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "description": null,
         "error": null,
         "hide": 2,
         "includeAll": true,
@@ -1705,12 +1649,12 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-2w",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Detailed audience",
   "uid": "020bovaMz",
-  "version": 51
+  "version": 52
 }

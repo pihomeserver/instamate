@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1612428549608,
+  "iteration": 1615469345531,
   "links": [],
   "panels": [
     {
@@ -25,23 +25,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": []
@@ -73,7 +60,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  case when media_type = 'VIDEO' then thumbnail_url\n      else media_url\n  end\nFROM \"Media\"\nWHERE\n  media_id = '$media_id'",
+          "rawSql": "SELECT\n  case when media_type = 'VIDEO' then thumbnail_url\n       when media_type = 'REELS' then thumbnail_url\n       else media_url\n  end\nFROM \"Media\"\nWHERE\n  media_id = '$media_id'",
           "refId": "A",
           "select": [
             [
@@ -107,11 +94,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": "center",
-            "displayMode": "auto",
-            "filterable": false
+          "color": {
+            "mode": "thresholds"
           },
+          "custom": {},
           "decimals": 0,
           "mappings": [],
           "thresholds": {
@@ -159,9 +145,10 @@
           "fields": "/^timestamp$/",
           "values": true
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -202,6 +189,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "mappings": [],
           "thresholds": {
@@ -235,9 +225,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -278,6 +269,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "mappings": [],
           "thresholds": {
@@ -311,9 +305,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -354,6 +349,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "mappings": [],
           "thresholds": {
@@ -387,9 +385,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -430,6 +429,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "mappings": [],
           "thresholds": {
@@ -463,9 +465,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -506,6 +509,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "mappings": [],
           "thresholds": {
@@ -539,9 +545,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -582,6 +589,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "mappings": [],
           "thresholds": {
@@ -615,9 +625,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -658,11 +669,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": "center",
-            "displayMode": "auto",
-            "filterable": false
+          "color": {
+            "mode": "thresholds"
           },
+          "custom": {},
           "decimals": 0,
           "mappings": [],
           "thresholds": {
@@ -697,9 +707,10 @@
           "fields": "/^duration$/",
           "values": true
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -740,6 +751,9 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
           "custom": {},
           "mappings": [],
           "thresholds": {
@@ -773,9 +787,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -816,10 +831,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
+          "color": {
+            "mode": "thresholds"
           },
+          "custom": {},
           "decimals": 1,
           "mappings": [],
           "thresholds": {
@@ -854,9 +869,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -897,10 +913,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
+          "color": {
+            "mode": "thresholds"
           },
+          "custom": {},
           "decimals": 1,
           "mappings": [],
           "thresholds": {
@@ -935,9 +951,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -978,10 +995,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
+          "color": {
+            "mode": "thresholds"
           },
+          "custom": {},
           "decimals": 1,
           "mappings": [],
           "thresholds": {
@@ -1016,9 +1033,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -1059,10 +1077,10 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
+          "color": {
+            "mode": "thresholds"
           },
+          "custom": {},
           "decimals": 1,
           "mappings": [],
           "thresholds": {
@@ -1097,9 +1115,10 @@
           "fields": "",
           "values": false
         },
+        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "targets": [
         {
           "format": "table",
@@ -1174,7 +1193,7 @@
         "alertThreshold": false
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1293,7 +1312,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1375,7 +1394,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "InstaMate"
@@ -1388,6 +1407,7 @@
           "text": "17902484194621111",
           "value": "17902484194621111"
         },
+        "description": null,
         "error": null,
         "hide": 2,
         "label": null,
@@ -1395,8 +1415,8 @@
         "options": [
           {
             "selected": false,
-            "text": "17902484194621111",
-            "value": "17902484194621111"
+            "text": "17888266264925052",
+            "value": "17888266264925052"
           }
         ],
         "query": "17888266264925052",
@@ -1412,6 +1432,7 @@
         },
         "datasource": "Instamate",
         "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "description": null,
         "error": null,
         "hide": 2,
         "includeAll": true,
@@ -1440,5 +1461,5 @@
   "timezone": "",
   "title": "Media",
   "uid": "LQaqKWJMz",
-  "version": 69
+  "version": 70
 }
