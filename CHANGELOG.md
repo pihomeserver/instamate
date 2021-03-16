@@ -1,6 +1,10 @@
 # Changelog
 ---------
 
+### 0.0.15 (March 16, 2021)
+- Grafana
+  - Bug fixing of dashboards
+
 ### 0.0.14 (March 9, 2021)
 - Grafana
   - Update time range for few dashboard

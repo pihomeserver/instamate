@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1615469345531,
+  "iteration": 1615545431604,
   "links": [],
   "panels": [
     {
@@ -635,7 +635,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  mi.video_views\nFROM \"MediaInsights\" as mi, \"Media\" as m\nWHERE \n  mi.media_id = '$media_id' and\n  m.media_id = '$media_id' and\n  m.media_type = 'VIDEO' and\n  mi.video_views is not null\nORDER by mi.\"createdAt\" desc\nlimit 1",
+          "rawSql": "SELECT\n  mi.video_views\nFROM \"MediaInsights\" as mi, \"Media\" as m\nWHERE \n  mi.media_id = '$media_id' and\n  m.media_id = '$media_id' and\n  (m.media_type = 'VIDEO' or m.media_type = 'REELS') and\n  mi.video_views is not null\nORDER by mi.\"createdAt\" desc\nlimit 1",
           "refId": "A",
           "select": [
             [
@@ -1461,5 +1461,5 @@
   "timezone": "",
   "title": "Media",
   "uid": "LQaqKWJMz",
-  "version": 70
+  "version": 71
 }
