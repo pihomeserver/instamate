@@ -1,6 +1,10 @@
 # Changelog
 ---------
 
+### 0.0.16 (March 23, 2021)
+- Node backend
+  - Bug fix in the user statistics updates
+
 ### 0.0.15 (March 16, 2021)
 - Grafana
   - Bug fixing of dashboards
