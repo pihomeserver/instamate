@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1612858872065,
+  "iteration": 1616065841564,
   "links": [],
   "panels": [
     {
@@ -50,23 +50,10 @@
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
+          "custom": {},
           "thresholds": {
             "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
+            "steps": []
           }
         },
         "overrides": [
@@ -125,7 +112,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.3",
+      "pluginVersion": "7.4.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -281,7 +268,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  media_url\nFROM\n  \"Media\"\nWHERE \n  media_id = '$media_1'",
+          "rawSql": "SELECT\n  case when media_type = 'VIDEO' then thumbnail_url\n       when media_type = 'REELS' then thumbnail_url\n       else media_url\n  end\nFROM\n  \"Media\"\nWHERE \n  media_id = '$media_1'",
           "refId": "A",
           "select": [
             [
@@ -350,7 +337,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  media_url\nFROM\n  \"Media\"\nWHERE \n  media_id = '$media_2'",
+          "rawSql": "SELECT\n  case when media_type = 'VIDEO' then thumbnail_url\n       when media_type = 'REELS' then thumbnail_url\n       else media_url\n  end\nFROM\n  \"Media\"\nWHERE \n  media_id = '$media_2'",
           "refId": "A",
           "select": [
             [
@@ -379,7 +366,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "instamate"
@@ -395,6 +382,7 @@
         },
         "datasource": "Instamate",
         "definition": "SELECT instagram_business_account AS __value, name AS __text FROM public.\"Pages\";",
+        "description": null,
         "error": null,
         "hide": 2,
         "includeAll": false,
@@ -422,6 +410,7 @@
         },
         "datasource": "Instamate",
         "definition": "SELECT media_id AS __value, timestamp AS __text FROM public.\"Media\" order by timestamp desc;",
+        "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
@@ -449,6 +438,7 @@
         },
         "datasource": "Instamate",
         "definition": "SELECT media_id AS __value, timestamp AS __text FROM public.\"Media\" order by timestamp desc;",
+        "description": null,
         "error": null,
         "hide": 0,
         "includeAll": false,
@@ -477,5 +467,5 @@
   "timezone": "",
   "title": "Media comparison",
   "uid": "2zdj2_BMz",
-  "version": 17
+  "version": 18
 }

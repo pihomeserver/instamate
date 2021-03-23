@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1615275085728,
+  "iteration": 1615552054117,
   "links": [],
   "panels": [
     {
@@ -1384,7 +1384,7 @@
         "y": 27
       },
       "hiddenSeries": false,
-      "id": 15,
+      "id": 17,
       "legend": {
         "avg": false,
         "current": false,
@@ -1422,7 +1422,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  insight_date AS \"time\",\n  email_contacts \nFROM \"UserDetailedInsights\"\nWHERE\n  $__timeFilter(insight_date)\nORDER BY 1",
+          "rawSql": "SELECT\n  insight_date AS \"time\",\n  profile_views \nFROM \"UserDetailedInsights\"\nWHERE\n  $__timeFilter(insight_date)\nORDER BY 1",
           "refId": "A",
           "select": [
             [
@@ -1450,7 +1450,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Email contacts",
+      "title": "Profile views",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1641,7 +1641,7 @@
         "y": 34
       },
       "hiddenSeries": false,
-      "id": 17,
+      "id": 15,
       "legend": {
         "avg": false,
         "current": false,
@@ -1679,7 +1679,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "SELECT\n  insight_date AS \"time\",\n  profile_views \nFROM \"UserDetailedInsights\"\nWHERE\n  $__timeFilter(insight_date)\nORDER BY 1",
+          "rawSql": "SELECT\n  insight_date AS \"time\",\n  email_contacts \nFROM \"UserDetailedInsights\"\nWHERE\n  $__timeFilter(insight_date)\nORDER BY 1",
           "refId": "A",
           "select": [
             [
@@ -1707,7 +1707,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Profile views",
+      "title": "Email contacts",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2178,5 +2178,5 @@
   "timezone": "",
   "title": "Detailed profile",
   "uid": "2Z_HBz1Mz",
-  "version": 89
+  "version": 90
 }

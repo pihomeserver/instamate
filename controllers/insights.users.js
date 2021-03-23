@@ -120,15 +120,16 @@ function updateUserInsights(user) {
 }
 
 function updateUserDetailedInsights(user) {
+  const timezone = "T08:00:00+0000"
   let todayDate = new Date()
   const offset = todayDate.getTimezoneOffset();
   todayDate = new Date(todayDate.getTime() + (offset*60*1000));
-  const today = todayDate.toISOString().split('T')[0]+"T08:00:00+0000"
+  const today = todayDate.toISOString().split('T')[0]+timezone
   todayDate.setDate(todayDate.getDate() - 1)
-  const yesterday = todayDate.toISOString().split('T')[0]+"T08:00:00+0000"
+  const yesterday = todayDate.toISOString().split('T')[0]+timezone
   // Due to day switch and missing current day
   todayDate.setDate(todayDate.getDate() - 1)
-  const beforeYesterday = todayDate.toISOString().split('T')[0]+"T08:00:00+0000"
+  const beforeYesterday = todayDate.toISOString().split('T')[0]+timezone
 
   return db.Page.findAll({ attributes: ['instagram_business_account'], where:{facebookId: user.id}})
     .then( (pages) => {
@@ -151,7 +152,7 @@ function updateUserDetailedInsights(user) {
         for (let field of profile.data.data) {
           // All dates
           for (let insightDate of field.values) {
-            updatedData[insightDate.end_time][field.name] = insightDate.value
+            updatedData[insightDate.end_time.split('T')[0]+timezone][field.name] = insightDate.value
             igID = field.id.split('/')[0]
           }
         }
