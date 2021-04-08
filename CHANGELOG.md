@@ -1,6 +1,11 @@
 # Changelog
 ---------
 
+### 0.0.17 (March 23, 2021)
+- Grafana
+  - Upgrade to Grafana 7.3.10
+  - Disable anonymous authentication
+
 ### 0.0.16 (March 23, 2021)
 - Node backend
   - Bug fix in the user statistics updates

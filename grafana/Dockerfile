@@ -1,7 +1,7 @@
-FROM grafana/grafana:7.3.6
+FROM grafana/grafana:7.3.10
 
 ENV GF_ANALYTICS_REPORTING_ENABLED=FALSE \
-    GF_AUTH_ANONYMOUS_ENABLED=true \
+    GF_AUTH_ANONYMOUS_ENABLED=false \
     GF_AUTH_BASIC_ENABLED=false \
     GF_PATHS_PLUGINS="/var/lib/grafana-plugins" \
     GF_SECURITY_ADMIN_PASSWORD=admin \
@@ -18,10 +18,6 @@ RUN grafana-cli --pluginsDir "${GF_PATHS_PLUGINS}" plugins install dalvany-image
     grafana-cli --pluginsDir "${GF_PATHS_PLUGINS}" --pluginUrl https://github.com/panodata/grafana-map-panel/releases/download/0.14.0/grafana-map-panel-0.14.0.zip plugins install grafana-worldmap-panel-ng
 
 USER grafana
-
-# COPY logo.svg /usr/share/grafana/public/img/grafana_icon.svg
-# COPY favicon.png /usr/share/grafana/public/img/fav32.png
-# COPY apple-touch-icon.png /usr/share/grafana/public/img/apple-touch-icon.png
 
 COPY datasource.yml /etc/grafana/provisioning/datasources/
 COPY dashboards.yml /etc/grafana/provisioning/dashboards/
