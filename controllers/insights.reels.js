@@ -91,6 +91,7 @@ exports.getUserReelsInsights = (user) => {
       return Promise.all(promisesReelsInsights)
     })
     .then( (insights) => {
+      // throw {response: {status: 429, message: 'Request error (429) with too many attemps'}}
       let promisesReelsUpdates = []
       for (let insight of insights) {
         if (insight.data && insight.data.graphql) {
@@ -116,14 +117,22 @@ exports.getUserReelsInsights = (user) => {
       }
       return Promise.all(promisesReelsUpdates)
     })
-    .catch( (error) => {
-      if (error.response.status && error.response.status === 404) {
-        const shortcode = error.response.config.url.split('/')[4].split('?')[0]
-        logger.error(`Request error (404) for media ${shortcode}`)
-        // console.log(error.response.config.url)
-        // return db.Media.destroy({ where: { shortcode: shortcode}})
+    .catch( error => {
+      if (error.response && error.response.status) {
+        if (error.response.status === 404) {
+          const shortcode = error.response.config.url.split('/')[4].split('?')[0]
+          logger.error(`Request error (404) for media ${shortcode}`)
+          throw `Request error (404) for media ${shortcode}`
+        }
+        if (error.response.status === 429) {
+          logger.error(`Request error (429) with too many attemps`)
+          throw `Request error (429) with too many attemps`
+        }
+        logger.error(error)
+        throw 'Request error'
       } else {
         logger.error(error)
+        throw 'Request error'
       }
     })
 }

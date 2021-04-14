@@ -1,7 +1,16 @@
 # Changelog
 ---------
 
-### 0.0.17 (March 23, 2021)
+### 0.0.19 (April 14, 2021)
+- Node backend
+  - Cron configuration with environment variables allowing dynamic modification without updating the backend container
+
+### 0.0.18 (April 9, 2021)
+- Node backend
+  - Reels cron managing 429 errors (too many requests)
+  - Reels cron configuration with environment variables
+
+### 0.0.17 (April 8, 2021)
 - Grafana
   - Upgrade to Grafana 7.3.10
   - Disable anonymous authentication

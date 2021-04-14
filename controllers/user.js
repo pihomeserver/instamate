@@ -37,7 +37,7 @@ exports.getUserInsights = (req, res) => {
   })
   .catch((error) => {
     req.flash('errors', error);
-    return res.redirect('/error', error);
+    return res.redirect('/error', {msg: error});
   });
 }
 
@@ -47,7 +47,7 @@ exports.getUserLifetimeInsights = (req, res) => {
   })
   .catch((error) => {
     req.flash('errors', error);
-    return res.redirect('/error', error);
+    return res.redirect('/error', {msg: error});
   });
 }
 
@@ -58,7 +58,7 @@ exports.getUserMedias = (req, res) => {
   })
   .catch((error) => {
     req.flash('errors', error);
-    return res.redirect('/error', error);
+    return res.redirect('/error', {msg: error});
   });
 }
 
@@ -68,7 +68,7 @@ exports.getStories = (req, res) => {
     res.redirect('/');
   })
   .catch((error) => {
-    req.flash('errors', error);
+    req.flash('errors', {msg: error});
     return res.redirect('/');
   });
 }
@@ -79,7 +79,7 @@ exports.getReels = (req, res) => {
     res.redirect('/');
   })
   .catch((error) => {
-    req.flash('errors', error);
+    req.flash('errors', {msg: error});
     return res.redirect('/');
   });
 }
