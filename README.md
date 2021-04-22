@@ -35,7 +35,7 @@ Examples
 License
 -------
 
-Copyright (c) 2020 Pi Home Server
+Copyright (c) 2021 Pi Home Server
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify copies of the Software (selling is not authorized), and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
